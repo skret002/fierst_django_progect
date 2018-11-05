@@ -1,0 +1,372 @@
+{% load staticfiles i18n %} {% load static %}{% load user_agents %}
+<!DOCTYPE html>
+<html lang="RU-ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="title" content="Ремонт смартфонов и планшетов, всех брендов в Санкт-Петербурге. Приморский р-он">
+    <meta name="description" content="Ремонт смартфонов и планшетов, всех брендов в Санкт-Петербурге. Приморский р-он">
+    <meta name="keywords" content="ремонт, смартфона, планшета, iphone,ipad,lenovo,asus,Xiaomi, Sony, lg,Huawei, СПБ, Санкт-Петербург, Приморский район, недорогой">
+    <link href="{% static 'style_smarfon.css' %}" rel="stylesheet">
+    <link href="{% static 'media_smarfon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jasny-bootstrap.min.css' %}" rel="stylesheet"> 
+        <!--подключаем карусель-->
+    <link href="{% static 'carousel/css/jquery.jscrollpane.css' %}" rel="stylesheet"> 
+    <link href="{% static 'carousel/css/style.css' %}" rel="stylesheet"> 
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i&amp;subset=cyrillic" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    
+
+
+
+</head>
+
+<body>
+    <div class="content" style="background: linear-gradient(-50deg, #1a2168, #3946c6, #343ea1, #2e3796);">
+        <div class="container_nav">
+            <div class="">
+                {% include "nav.html" %}
+                <div class="container">
+                    <div class="row">
+                        <div class="sub_nav">
+                            <div class="col-xs-5 col-sm-3 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-3 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                                <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                            </div>
+                            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                                <p class="adres"> <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--ТЕЛО ОСНОВНОЕ-->
+        <section>
+            <div class="container">
+                    <div class="row no-gutter">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding">
+                                <div class="header_with_search">
+                                    <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3 col-lg-offset-3 col-xl-offset-3" >
+                                                <div class="error_count_val hidden" id="error_count_val">
+                                                    <p><img  id="img_ups" src="{% static 'img/ups_smail.png' %}" alt=""> Упс: Вы меня совсем запутали! </p>
+                                                    <p>Пожалуйста удалите и ли добавьте последний <br> символ в строке поиска.</p>
+                                                </div>
+                                                <div class="text-alert hidden" id="text-alert">
+                                                    <p>Сейчас в нашей базе найдено <span id="alert_count_val"> </span> моделей с таким названием. <br>
+                                                        Пожалуйста уточните модель и введите ее в поле поиска!  <span class="glyphicon glyphicon-arrow-up"></span>
+                                                    </p>
+                                                </div>
+                                        <div class="search">
+                                            <form method="GET" class="search_form" id="search_form" name="search" action="{%  url 'smartfon:smartfon_home_and_search' %}" role="search" required autocomplete="off">
+                                                <input id="input_model" name="input_model" class="form-control input-lg bc_transparency" type="text" placeholder="Введите модель смартфона, бренд не нужен ...">
+                                                <span id="sub_search" class="glyphicon glyphicon-search"></span>
+                                            </form>
+                                        </div>
+                                        <div  id="search_result" class="search_result hidden">
+                                            <h5>Выберите вашу модель смартфона</h5>
+                                            {% if request.user_agent.is_pc %}
+                                            <select multiple class="form-control form_result_search">
+                                                    <!--options add in JS-->
+                                              </select>
+                                              {% else %}
+                                             <select class=" form-control form_result_search">
+                                                    
+                                              </select>
+                                              {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xl-4 col-xs-offset-1 col-sm-offset-4 col-md-offset-6 col-lg-offset-6 col-xl-offset-7 quote_in_head" >
+                                        <div class="text">
+                                            <h5 class="help_head_h5">Где смотреть модель смартфона?</h5>
+                                            <ul class="help_head_li">
+                                            <li> Низ тыльной стороны </li>
+                                            <li> под аккумулятором вашего смартфона </li>
+                                            <li> Настройки >> о телефоне >> model</li>
+                                            <li> на коробке</li>
+                                            </ul>
+                                        </div>        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+            </div>
+        </section>
+
+<!--БЛОК ПРЕИМУЩЕСТВ-->
+<div class="container advant">
+        <div class="row no-gutter advantage">
+            <div class=" col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="row gr">
+                <h1> Обратите внимание </h1>
+                <a href="#win1" class="btns"><div class=" col-xs-6  col-md-offset-1 col-lg-offset-1 col-xl-offset-1 col-sm-3 col-md-2 col-lg-2 col-xl-2 bord" >
+                        <h3>диагностика 0 <span>руб.</span> </h3>
+                            <p>подробнее >></p>
+                    </div></a>
+                    <a href="#win2" class="btns"><div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 col-xl-2 bord">
+                            <h3>гранития 3 мес</h3>
+                                <p>подробнее >></p>
+                            </div></a>
+                            <a href="#win3" class="btns"><div class=" col-xs-6 col-sm-3 col-md-2 col-lg-2 col-xl-2 bord">
+                                    <h3>адекватные цены</h3>
+                                        <p>подробнее >></p>
+                            </div></a>
+                            <a href="#win4" class="btns"> <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 col-xl-2 bord set_small_line">
+                                    <h3>срок ремонта</h3>
+                                        <p>подробнее >></p>
+                                </div></a>
+                                <a href="#win5" class="btns"> <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 col-xl-2 bord bord_end set_small_line">
+                                        <h3>Ремонт на дому</h3>
+                                            <p>подробнее >></p>
+                                    </div></a>
+                </div></div>
+        </div>
+    </div>
+                
+    <!--БЛОК ПОПУЛЯРНЫХ УСЛУГ-->
+    <div class="container blackout blackout_two">
+        <div class="row no-gutter advantage">
+            <div class=" col-md-12 col-lg-12 col-xl-12">
+                <h1> ПОПУЛЯРНЫЕ УСЛУГИ И ТОВАРЫ</h1>
+                <div id="ca-container" class="ca-container">
+                        <div class="ca-wrapper">
+                            <!--Item in Carusl-->
+                            {% for  item in  popular_services %}
+                                <div id= "ca-item" class="ca-item_zero ca-item ca-item-1">
+                                    <div class="ca-item-main">
+                                        <div class="ca-icon"><img src="{{item.image_part_base_smoll.url}}"></div>
+                                            <h3>{{item.name_service}}<span class="price_in_pop_block"> {{item.full_prise}}руб.</span></h3>
+                                                <h4>
+                                                    <span class="ca-quote">&ldquo;</span>
+                                                    <span id="text_carusel">{{item.description_service|slice:":120"}}</span>
+                                                </h4>
+                                                    <a href="#" id="ca-more" class="ca-more">подробнее...</a>
+                                    </div>
+                                    <div class="ca-content-wrapper ca-content-wrapper-mob">
+                                        <div class="ca-content">
+                                            <h6>{{item.name_service}}       <span class="price_in_pop_block">{{item.full_prise}}руб.</span> </h6>
+                                                <a href="#" class="ca-close">закрыть</a>
+                                                <div class="ca-content-text">
+                                                    <p class="deskript_service_carusel">{{item.description_service}}</p>  
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!--БЛОК АКЦИЙ-->
+    <div class="container blackout blackout_two">
+        <div class="row no-gutter advantage">
+            <div class=" col-md-12 col-lg-12 col-xl-12">
+                <h1> Сейчас в акции  <img class="sale_b_img" src="{% static 'carousel/images/sale_b.gif' %}">   </h1>
+                <div id="ca-container-too" class="ca-container">
+                        <div class="ca-wrapper">
+                            <!--Item in Carusl-->
+                            {% for  item in  sale %}
+                                <div class="ca-item ca-item-0">
+                                    <div class="ca-item-main">
+                                        <div class="ca-icon"><img src="{{item.image_part_base_smoll.url}}"></div>
+                                            <h3>{{item.name_service}}<span class="price_in_pop_block">  <br><img class="medium_skidki" src="{% static 'carousel/images/arrow_sale.gif' %}">  - {{ item.price_sale }} руб.</span></h3>
+                                                <h4>
+                                                    <span class="ca-quote">&ldquo;</span>
+                                                    <span id="text_carusel">{{item.description_service|slice:":120"}}</span>
+                                                </h4>
+                                                    <a href="{%  url 'smartfon:SalePartsCart' name_part=item.name_service  %}" class="ca-more-mo">подробнее...</a>
+                                    </div>
+                                    <div class="ca-content-wrapper">
+                                        <div class="ca-content">
+                                            <h6>{{item.name_service}}       <span class="price_in_pop_block">{{ item.sum }} руб.</span> </h6>
+                                                <a href="#" class="ca-close">закрыть</a>
+                                                <div class="ca-content-text">
+                                                    <p class="deskript_service_carusel">{{item.description_service}}</p>  
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>    
+    <!--БЛОК АКЦИЙ-->
+
+            <!--Map-->
+            <div class="container">
+                    <div class="row no-gutter advantage">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <h1>НАС ЛЕГКО НАЙТИ</h1>
+                            <div class="karta_footer wow fadeInUpBig" data-wow-duration="0.5s" data-wow-delay="1.5s">
+                                <a class="dg-widget-link" href="https://2gis.ru/spb/firm/70000001020807113/center/30.23671388626099,60.003706616324685/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Санкт-Петербурга</a>
+                                <div class="dg-widget-link"><a href="https://2gis.ru/spb/center/30.236378,60.003157/zoom/16/routeTab/rsType/bus/to/30.236378,60.003157╎Олтех, торгово-сервисный центр?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Олтех, торгово-сервисный центр</a></div>
+                                <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                                <script charset="utf-8">
+                                    new DGWidgetLoader({
+                                        "width": 400,
+                                        "height": 600,
+                                        "borderColor": "#a3a3a3",
+                                        "pos": {
+                                            "lat": 60.003706616324685,
+                                            "lon": 30.23671388626099,
+                                            "zoom": 16
+                                        },
+                                        "opt": {
+                                            "city": "spb"
+                                        },
+                                        "org": [{
+                                            "id": "70000001020807113"
+                                        }]
+                                    });
+                                </script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--КОНЕЦ ТЕЛА-->
+        {% include "footer.html" %}
+    </div>
+<!--Модальный окна " преимуществ "-->
+
+<!-- Модальное Окно №1 --> 
+<div class="dm-overlay" id="win1">
+        <div class="dm-table">
+            <div class="dm-cell">
+                <div class="dm-modal modal_form_one" id="modal_form_one">
+                    <a href="#close" class="close"></a>
+                    <h3>Диагностика всегда бесплатна!</h3>
+                    <p>В нашей мастерской, для всех смартфонов и планшетов, диагностика всегда бесплатна, даже если вы отказались от ремонта.</p>
+                    <h5>Что входит в бесплатную диагностику:</h5>
+                    <ul>
+                        <li>Поиск неисправностей</li>
+                        <li>Оценка срока и стоимости их устранения</li>
+                        <li>Озвучивание неисправностей</li>
+                        <li>При отказе от ремонта, по просьбе клиента выдаем бланк-заказ наряда с результатами диагностики</li>
+                        <li>По желанию клиента возможен фото отчет.</li>
+                    </ul>
+                    <h5>Исключения:</h5>
+                    <p>Исключением из  бесплатной диагностики является только редкие девайсы!
+                        Дело в том, что для полной диагностики редких моделей, иногда требуется 	заказ редких комплектующих, которые нам больше не понадобятся . По сути, для 	диагностики данного смартфона нами может быть совершена одноразовая покупка, но если принимается решение о ремонте, то данные запчасти входят в стоимость ремонта!
+                        Обычно  цена  такой диагностики  составляет <span>  от 0 руб. до 2000руб.</span></p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное Окно №2 --> 
+<div class="dm-overlay" id="win2">
+    <div class="dm-table">
+        <div class="dm-cell">
+            <div class="dm-modal modal_form_one" id="modal_form_one">
+                <a href="#close" class="close"></a>
+                <h3>Гарантия 90 дней</h3>
+                <p>Гарантия на произведенные работы в нашей мастерской составляет 3 мес.
+                    Если гарантия на комплектующие  превышает срок <span>90 дней</span>, клиенту выдается два вида гарантии. Вся документация официальна!</p>
+                <p>PS:  Мы всегда лояльны к нашим клиентам и потому обратится к нам можно, даже в случае небольшого  превышения гарантийного срока... Мы все равно поможем.</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Модальное Окно №3 --> 
+    <div class="dm-overlay" id="win3">
+        <div class="dm-table">
+            <div class="dm-cell">
+                <div class="dm-modal modal_form_one" id="modal_form_one">
+                    <a href="#close" class="close"></a>
+                    <h3>Адекватные цены</h3>
+                    <p> Благодаря квалифицированным мастерам и достаточному техническому оснащению, мы выполняем ремонт на компонентном уровне, а не меняем целые блоки — это и позволяет нам 
+                        держать цены и сроки на комфортном уровне как для Клиентов, так и для нас.</p>
+                    <h5>Неизменность цены:</h5>
+                    <p class="of">	Мы озвучиваем цену ремонта вашего аппарата один раз, после проведения диагностики  -  	это цена является неизменной ,  мы не делаем ни каких при плюсовок во время работы и 	не навязываем ни каких дополнительных услуг.</p>
+                    <h5>Бессмысленные ремонт:</h5>
+                    <p class="of">	Если  стоимость ремонта на таком уровне, что правильнее купить новый смартфон, наши мастера Вам так и скажут. Мы не чего не скрываем!</p>
+    
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное Окно №4 --> 
+    <div class="dm-overlay" id="win4">
+        <div class="dm-table">
+            <div class="dm-cell">
+                <div class="dm-modal modal_form_one" id="modal_form_one">
+                    <a href="#close" class="close"></a>
+                    <h3>Срок ремонта</h3>
+                    <p>Срок ремонта зависит от степени повреждения и наличии комплектующих!.
+                        В среднем диагностика занимает один рабочей день и еще один день требуется на ремонт и тестирование. Диагностика редких смартфонов может занять несколько дней и 3и дня на ремонт.</p>
+                    <p style="padding-top:0px !important">Обычно все работы выполняются за 1-2 дня.
+        
+                    <h5>Исключения:</h5>
+                        <p class="of">Конечно бывают сложные случаи и очень сложные составные комплектующие,
+                            более того, для девайсов производитель не выпускает документации, что увеличивает сроки диагностики 
+                            при таких поломках как (залили, раздовили и т.д).
+                            Так же нужно учесть, что плавающие неисправности ( например: иногда не включается), всегда диагностируются дольше обычного, так как дефект нужно отловить и произвести необходимые замеры.
+                            Запчасти: Не стоит забывать о запчастях, конечно мы имеем в своем распоряжении огромное кол-во все возможных деталей. Но современная техника не «шаблонная» и каждый производитель стремится сделать по своему. Иногда на доставку запчастей от поставщиков в СЦ может уйти один и даже два дня!</p>
+    
+    
+                </div>
+            </div>
+        </div>
+    </div>
+          <!-- Модальное Окно №5 --> 
+    <div class="dm-overlay" id="win5">
+        <div class="dm-table">
+            <div class="dm-cell">
+                <div class="dm-modal modal_form_one" id="modal_form_one">
+                    <a href="#close" class="close"></a>
+                    <h3>Ремонт на дому</h3>
+                    <p>Выезд мастера  в пределах Санкт-Петербурга стоит 300руб и оплачивается обязательно! <br>
+                        Внимание: Следует уточнить, возможен ли ремонт на выезде в вашем случае.
+                    </p>
+                    <h3>Доставка</h3>
+                    <p class="right">Доставка курьером  в пределах Санкт-Петербурга стоит 500 руб 
+                        <br> (в СЦ и обратно) и оплачивается обязательно!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Пoдлoжкa -->
+        <div id="overlay_one"></div>
+        <!-- Пoдлoжкa -->
+
+
+<!--Модальный окна " преимуществ "-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fancybox/jquery.fancybox.pack.js' %}"></script>
+    <script src="{% static 'advantage_madal.js' %}"></script>
+    <script src="{% static 'smartfon.js' %}"></script>
+    <!--подключаем карусель-->
+
+    <script src="{% static 'carousel/js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'carousel/js/jquery.contentcarousel.js' %}"></script>
+    <script src="{% static 'carousel/js/jquery.mousewheel.js' %}"></script>
+
+    <script type="text/javascript">
+        $('#ca-container').contentcarousel();
+        $('#ca-container-too').contentcarousel();
+    </script>
+
+
+</body>
+
+</html>

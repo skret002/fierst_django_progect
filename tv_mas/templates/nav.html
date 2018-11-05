@@ -1,0 +1,81 @@
+{% load staticfiles i18n %}
+<style>
+        html, body {
+          height: 100%;
+        }
+        
+        body {
+          padding: 0 0 0 0;
+        }
+        
+        .navbar-toggle {
+          float: left;
+          margin-left: 1em;
+        }
+        
+        @media (min-width: 0) {
+          .navbar-toggle {
+            display: block; /* force showing the toggle */
+          }
+        }
+        
+        @media (min-width: 992px) {
+          body {
+            padding: 0;
+          }
+          .navbar {
+            right: auto;
+            background: none;
+            border: none;
+            margin-left: 1em;
+          }
+        }
+        .icon-bar{
+          background-color: #f8f3f3 !important;
+        }
+        .navbar-toggle:hover {
+              background-color: #2196F3 !important;
+          }
+          .navbar-default .navbar-toggle:focus{
+            background-color: #0c0c0c00;
+          }
+          .navbar{
+            position:absolute;
+          }
+          @media (max-width: 993px) {
+            .navbar-default {
+              width: 0px;
+            }
+            .navbar-toggle{
+              margin-left: 2em;}
+            }
+        </style>
+            <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+              <a class="navmenu-brand" href="#">Название сайта</a>
+              <ul class="nav navmenu-nav">
+                <li class="active gorizontal_menu"><a href="#">Пункт 1</a></li>
+                <li class="gorizontal_menu"><a href="#">Пункт 2</a></li>
+                <li class="gorizontal_menu"><a href="#">Пункт 3</a></li>
+                <li class="dropdown gorizontal_menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Пункт 4 <b class="caret"></b></a>
+                  <ul class="dropdown-menu navmenu-nav br_nav">
+                    <li class="gorizontal_podpunkt"><a href="#">Подпункт 4.1</a></li>
+                    <li class="gorizontal_podpunkt"><a href="#">Подпункт 4.2</a></li>
+                    <li class="gorizontal_podpunkt"><a href="#">Подпункт 4.3</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-h_podpunkt " style="text-align: center;color: red;text-transform: uppercase;font-family: 'Roboto Condensed', sans-serif;">Аутентификация</li>
+                    <li class="gorizontal_podpunkt top"><a href="#">Подпункт 4.4</a></li>
+                    <li class="gorizontal_podpunkt"><a href="#">Подпункт 4.5</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+        
+            <div class="navbar navbar-default navbar-fixed-top">
+              <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <p class="menu">меню</p>
+            </div>

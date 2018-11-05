@@ -1,0 +1,308 @@
+
+@media only screen and (max-width: 568px) and (orientation: portrait) {
+    body {
+      display: none;
+    }
+    
+    html:after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        color: #000;
+        text-align: center;
+        padding: 5%;
+        top: 0;
+        font-family: Open Sans, sans-serif;
+        font-size: 16px;
+        content: '';
+        background-image: url(../static/rotate.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+@media (min-width: 992px){
+    #header_smoll{
+        display: none;
+        
+    }
+    #full_info{
+        display: none;
+    }
+
+}
+@media (max-width: 992px){
+    .photo_header{
+        height: 0px;
+    }
+    .bt_reed{
+        display: none;
+    }
+    .border {
+        border-right: none;
+    }
+    .info_sumernote{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@media (width: 1366px){
+    #img_prev {
+        max-width: 150px;
+    }
+    .trebovaniya{
+        line-height: 1.8;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1280px){
+    #img_prev {
+        max-width: 85px;
+    }
+    .trebovaniya{
+        line-height: 1.8;
+    }
+    #drop1-1, #drop1, #drop2, #drop3, .price_in_line, .copy_line{
+        margin-left: 5px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+    #img_prev {
+        float: none;
+        margin-bottom: 2em;
+    }
+    .trebovaniya{
+        font-size: inherit;
+        line-height: 1.7;
+    }
+    #drop1-1, #drop1, #drop2, #drop3, .price_in_line, .copy_line{
+        margin-left: 5px;
+    }
+    .dropdown-4{
+        width: 78px !important;
+    }
+    .dropdown-5 {
+        width: 100px !important;
+    }
+    .price_in_line p {
+        font-size: unset;
+    }
+    .price_in_line{
+        width: 130px !important;
+    }
+}
+
+@media (min-width: 568px) and (max-width: 992px){
+    .info{
+    border-bottom: 2px solid darkgrey;
+    height: 20%;
+    overflow: hidden;
+    }
+    .bt_reed_full{
+        height: 100 !important;
+    }
+    .info_sumernote{
+        height: 80vh;
+        overflow: hidden;
+    }
+    #full_info{
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+    #header_smoll{
+        display: none;
+    }
+    #position {
+        text-align: start;
+        margin-left: 200px;
+        float: none;
+}
+    .Button{
+        float: right;
+    }
+    #img-preview{
+        width: 45%;
+        float: left;
+    }
+    #img_primer_chaild{
+        width: 45%;
+        float: right;
+    }
+    .t_h{
+        display: none;
+    }
+    #style_label{
+        width: 80px;
+    }
+    #select1-1{
+        width: 96px;
+    }
+    #drop1 {
+        width: 120px;
+        margin-left: 5px !important;
+    }
+    #drop1-1 {
+        margin-left: 5px !important;
+    }
+    #drop2 {
+        width: 60px !important;
+    }
+    #drop3 {
+        width: 98px !important;
+    }
+    .dropdown{
+        margin-left: 5px !important;
+    }
+    .price_in_line{
+        width: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+        margin-left: 5px;
+    }
+    .copy_line {
+        width: 100px !important;
+        height: 40px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        font-size: small !important;
+        line-height: 1 !important;
+        margin-top: 0.5em !important;
+        float: right !important;
+    }
+    .particles{
+        margin-top: -25px;
+    }
+    .beautiful_content svg{
+        margin-bottom: 10px !important;
+    }
+    .glyphicon-plus{
+        display: none !important;
+    }
+}
+
+@media (min-width: 414px) and (max-width: 640px){
+    .info{
+    border-bottom: 2px solid darkgrey;
+    height: 20%;
+    overflow: hidden;
+    }
+    #img_prev{
+        max-width: 50px;
+    }
+    #bt_reed_full{
+        height: 100 !important;
+    }
+    .info_sumernote{
+        height: 80vh;
+        overflow: hidden;
+    }
+    #full_info{
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+    #header_smoll{
+        display: none;
+    }
+    #position {
+        text-align: start;
+        margin-left: 65px;
+        float: none;
+    }
+    .Button{
+        float: right;
+    }
+    #img-preview{
+        width: 45%;
+        float: left;
+    }
+    #img_primer_chaild{
+        width: 45%;
+        float: right;
+    }
+    .t_h{
+        display: none;
+    }
+    .order_doc h2{
+        font-size: x-large;
+    }
+    .Button {
+        float: none;
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 414px){
+    .info{
+    border-bottom: 2px solid darkgrey;
+    height: 20%;
+    overflow: hidden;
+    }
+    #img_prev{
+        max-width: 50px;
+    }
+    #bt_reed_full{
+        height: 100 !important;
+    }
+    .info_sumernote{
+        height: 80vh;
+        overflow: hidden;
+    }
+    #full_info{
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+    #header_smoll{
+        display: none;
+    }
+    #position {
+        text-align: start;
+        margin-left: 65px;
+        float: none;
+    }
+    .Button{
+        float: right;
+    }
+    #img-preview{
+        width: 45%;
+        float: left;
+    }
+    #img_primer_chaild{
+        width: 45%;
+        float: right;
+    }
+    .t_h{
+        display: none;
+    }
+    .order_doc h2{
+        font-size: x-large;
+    }
+    .Button {
+        float: none;
+    }
+    #h4_primer_photo{
+        font-size: xx-large;
+    }
+    #task {
+        font-family: 'Roboto', sans-serif ! important;
+        font-weight: 700 !important;
+        text-align: left;
+        margin-top: 2em;
+        line-height: 1.5;
+        font-size: inherit;
+        padding: 15px;
+    }
+    .karta h1 {
+        font-family: 'Roboto', sans-serif !important;
+        font-weight: 700 !important;
+        color: white;
+        font-size: x-large;
+    }
+
+}
+@media (min-width: 1366px){
+    .copy_line {
+        width: auto !important;
+        padding-right: 5px !important;
+    }
+}

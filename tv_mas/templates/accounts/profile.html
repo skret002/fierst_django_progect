@@ -1,0 +1,27 @@
+{% extends 'accounts/base.html' %} {% block content %}
+<h2 class="text-center reg_h1">Данные профиля</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xl-offset-3">
+            <div class="form-group ">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        {% csrf_token %}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Имя</label>{{user_form.first_name}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Фамилия</label>{{user_form.last_name}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Email</label>{{user_form.email}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Вы частный клиент или компания?</label><br>{{profile_form.company_or_us_choise}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Контактный номер</label><br>{{profile_form.tel_number}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Дополнительный номер</label><br>{{profile_form.tel_number_two}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Адрес доставки</label><br>{{profile_form.location}}</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1em;">Сохранить</button>
+                    <a class="formGroupExampleInput" href="/accounts/profile_view/" style="margin-left: 1em;font-size: 1.2em;">Перейти в личный кабинет</a>
+                </form>
+                <p class="as_profile_reg">{% if messages %} {% for message in messages %} {% if "html_safe" in message.tags %} {{ message|safe }} {% else %} {{ message }} {% endif %} {% endfor %} {% endif %}</p>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,115 @@
+{% extends "suvenirka_product/base_produkt.html" %} {% block tovars_in_category %}
+<style>
+    .produkt_img {
+        height: 200px;
+        width: auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .product-item {
+        position: relative;
+        height: 415px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    
+    .product-item h3 {
+        color: #4415af;
+        text-transform: uppercase;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 700;
+        font-size: x-large;
+    }
+    
+    .product-item p {
+        height: auto;
+        overflow-wrap: break-word;
+        color: #212121;
+        text-transform: uppercase;
+        font-family: 'Vollkorn', serif;
+        font-size: small;
+    }
+    
+    .add-to-card-btn {
+        position: absolute;
+        bottom: 0;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: -available;
+    }
+    
+    .btn-success {
+        background-color: #3F51B5;
+        border-color: #3F51B5 !important;
+    }
+    
+    .btn-success:hover {
+        background-color: #3244A4;
+        border-color: #1E3094 !important;
+        border: 2px solid;
+    }
+    
+    .cena {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: x-large;
+        color: #4415AF;
+    }
+    
+    .discount-container {
+        display: none;
+    }
+    
+    .btn_more {
+        text-transform: uppercase;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 1.2em;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        {% for product_image in products_images %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="product-item">
+                <div>
+                    <a href="{% url 'product' product_image.product.id %}">
+                        <div class="produkt_img img-responsive" style="background-image: url({{product_image.image.url}})" ;>
+                        </div>
+                    </a>
+                </div>
+                <h3>{{ product_image.product.name }}</h3>
+                <p style="min-height: 70px;overflow-wrap: break-word;">
+                    {{ product_image.product.short_description|truncatechars_html:150 }}
+                </p>
+                <div class="cena">
+                    {{ product_image.product.price }} РУБ
+                </div>
+                {% if product_image.product.discount %}
+                <div class="discount-container">
+                    <span>{{ product_image.product.discount }}%</span>
+                </div>
+                {% endif %}
+                <div class="add-to-card-btn">
+                    <a href="{% url 'product' product_image.product.id %}">
+                        <button class="btn btn-success btn_more">
+                            подробнее
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="opisanie_kategori">
+            {% for descriptions_kategoris in description_kategori %} {{descriptions_kategoris.text|safe}} {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

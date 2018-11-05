@@ -1,0 +1,540 @@
+{% load staticfiles i18n %} {% load static %}{% load user_agents %}
+<!DOCTYPE html>
+<html lang="RU-ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="title" content="Недорогой копицентр. Приморский р-он">
+    <meta name="description" content="Недорогой копицентр - Печать,Ксерокс,Набор текста,Сканирование,А3 Приморский р-он">
+    <meta name="keywords" content="Печать,Ксерокс,Набор текста,Сканирование,А3,А4, СПБ, Санкт-Петербург, Приморский район, недорогой">
+    <link href="{% static 'style_smarfon.css' %}" rel="stylesheet">
+    <link href="{% static 'media_smarfon.css' %}" rel="stylesheet">
+    <link href="{% static 'photo.css' %}" rel="stylesheet">
+    <link href="{% static 'especially_print_photo.css' %}" rel="stylesheet">
+    <link href="{% static 'photo_media.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'preload.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jasny-bootstrap.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'bootstrap_select/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
+
+</head>
+<div id="preload" class="preload hidden">
+    <div class="row">
+        <div id="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="lading"></div>
+        </div>
+    </div>
+</div>
+<style>
+    .isolayer {
+        margin-top: 50px;
+        margin-left: 10px;
+    }
+    .theme-12 {
+        --color-item-bg: linear-gradient(to right, #d0c9c9 0%, #f3f3f3 19%, #5a4e4e 60%, #656565 100%) !important;        
+        --color-action: #171515 !important;
+        --color-button-bg: #0c0c0c !important;
+        --color-button-text: #fff;
+        --button-padding: 1.5rem 7rem;
+        --radius-button: 40px;
+        --border-button: 0;
+    }
+    .inputfile-1 + label {
+        color: #f1e5e6;
+        background-color: #1b1a1a;
+    }
+    #select1-1 input, #select1-1 input, .dropdown .select {
+        background-color: #0c0c0c;
+        border: none;
+        color: white;
+    }
+    @media (min-width: 1400px){
+        .line_order{
+            margin-left: 15vh !important;
+        }
+    }
+    
+
+</style>
+
+<body>
+    <div class="content" style="background: linear-gradient(-50deg, #1a2168, #3946c6, #343ea1, #2e3796);">
+        <div class="container_nav">
+            <div class="">
+                {% include "nav.html" %}
+                <div class="container">
+                    <div class="row">
+                        <div class="sub_nav">
+                            <div class="col-xs-5 col-sm-5 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                                <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                            </div>
+                            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-0 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                                <p class="adres"> <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container data_wrap" >
+            <div class="row">
+                <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xl-4 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-xl-offset-4 no-padding" id='header_smoll'>
+                    <div class="uslugi_masterskaya" >
+                        <h1>Фото на документы</h1>
+                        <p>Мы делаем <b>ФОТО</b> которые принимают сразу!</p>
+                    </div>
+                </div>
+                <div class=".hidden-xs  .hidden-sm col-lg-12 col-md-12 col-xl-12  no-padding title_in_head">
+                    <div class="photo_header">
+                        <div class="t_h">
+                            {% for title in head%}
+                            {% if title.title %}
+                            {{title.title|safe}}
+                            {%else%}
+                            {%endif%}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <section class="data-photo" id="data-photo">
+               <div class="container">
+                   <div class="row top_animate">
+                                <div id="line_order_clear" class="hidden">
+                                        <div class='add_file'>
+                                                <input type="file" name="file-1" id="" class="inputfile inputfile-1" data-multiple-caption="+ {count} шт." multiple />
+    
+                                                <label for="" id="style_label"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+                                                    <span id="style_lab_span"> Добавить файл </span></label>
+                                            </div>
+                                        <div class=" format">
+                                            <div id="drop1-1">
+                                                <div id="select1-1" class="select count_copy">
+                                                    <input  required="true"  name="count_copy_0 " placeholder="кол-во копий" class="form-control"  type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" format">
+                                                <div id="drop1" class="dropdown type_photo">
+                                                    <div class="select">
+                                                            {% if request.user_agent.is_mobile %}
+                                                            <span>Тип услуги<span id="glyphicon-arrow-down" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></span>
+                                                            {% else %}
+                                                            <span>Выбрать Тип услуги <span id="glyphicon-arrow-down" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></span>
+                                                            {% endif %}
+                                                        <i class="fa fa-chevron-left"></i>
+                                                        </div>
+                                                        <input  type="hidden" name="type_photo_0">
+                                                        <ul class="dropdown-menu">
+                                                        {% for product in price_doc %}
+                                                        <li id="select_format" value="{{product.id}}" 
+                                                                                        data-price1="{{product.price_smollshipment}}"
+                                                                                        data-price2="{{product.price_medium_shipment}}"
+                                                                                        data-price3="{{product.price_big_shipment}}">
+                                                                                        {{product.format_photo}} - {{product.type_paper}}</li>
+                                                        {% endfor %}
+                                                        </ul>
+                                                </div>
+                                        </div>
+
+                                        <div class="format">
+                                                <div id="drop3" class="dropdown dropdown-5 time">
+                                                    <div  class="select">
+                                                        <span>Срочность <span id="glyphicon-arrow-down" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></span>
+                                                        <i class="fa fa-chevron-left"></i>
+                                                    </div>
+                                                        <input  type="hidden" name="time_0">
+                                                        <ul class="dropdown-menu">
+                                                                <li value="0" id="select_format">Заберу сразу по готовности</li>
+                                                                <li value="1"  id="select_format">Нужно как можно быстрее</li>
+                                                                <li value="2"  id="select_format">Заберу завтра</li>
+                                                                <li value="3"  id="select_format">Заберу после завтра</li>
+                                                                <li value="4"  id="select_format">Заберу на недели</li>
+                                                        </ul>
+                                                </div>
+                                        </div>
+                                        <div class="price_in_line">
+                                                {% if request.user_agent.is_mobile %}
+                                                <p>0 руб.</p>
+                                                {% else %}
+                                                <p>К оплате 0 руб.</p>
+                                                {% endif %}
+                                        </div>
+
+                                </div>
+                       <div class="col-lg-offset-1 col-md-offset-0 col-sm-offset-0 col-xs-offset-0 col-lg-11 col-md-12 col-sm-12 col-xs-12 add_photo ">
+                            <h3>Заполнить заявку</h3>
+                            <span id="requests">* Все поля обязательны!</span>
+                            <form method="POST" name="order" action="{%  url 'print_documents:print_doc_order'%}" id="order_photo" class="order_photo" enctype="multipart/form-data" >{% csrf_token %}
+                                <div class="form-group in_line_add">
+                                    <div id="0" class="line_order">
+                                            <div class='add_file'>
+                                                    <input type="file" name="file-0" id="file" class="inputfile inputfile-1" data-multiple-caption="+ {count} шт." multiple />
+                                                    <label for="file" id="style_label"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                                        <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+                                                        <span id="style_lab_span"> Добавить файл </span></label>
+                                                </div>
+                                        <div class=" format">
+                                            <div id="drop1-1">
+                                                <div id="select1-1" class="select count_copy">
+                                                    {% if request.user_agent.is_mobile %}
+                                                        <input  required="true"  name="count_copy_0 " placeholder="к-в копий" class="form-control"  type="text">
+                                                    {% else %}
+                                                        <input  required="true"  name="count_copy_0 " placeholder="кол-во копий" class="form-control"  type="text">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" format">
+                                                <div id="drop1" class="dropdown type_photo">
+                                                    <div class="select">
+                                                        {% if request.user_agent.is_mobile %}
+                                                        <span>Тип услуги<span id="glyphicon-arrow-down" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></span>
+                                                        {% else %}
+                                                        <span>Выбрать Тип услуги <span id="glyphicon-arrow-down" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></span>
+                                                        {% endif %}
+                                                        <i class="fa fa-chevron-left"></i>
+                                                        </div>
+                                                        <input  type="hidden" name="type_photo_0">
+                                                        <ul class="dropdown-menu">
+                                                        {% for product in price_doc %}
+                                                        <li id="select_format" value="{{product.id}}" 
+                                                                                        data-price1="{{product.price_smollshipment}}"
+                                                                                        data-price2="{{product.price_medium_shipment}}"
+                                                                                        data-price3="{{product.price_big_shipment}}">
+                                                                                        {{product.format_photo}} - {{product.type_paper}}</li>
+                                                        {% endfor %}
+                                                        </ul>
+                                                </div>
+                                        </div>
+
+                                        <div class="format">
+                                                <div id="drop3" class="dropdown dropdown-5 time">
+                                                    <div  class="select">
+                                                        <span>Срочность<span id="glyphicon-arrow-down" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></span>
+                                                        <i class="fa fa-chevron-left"></i>
+                                                    </div>
+                                                        <input  type="hidden" name="time_0">
+                                                        <ul class="dropdown-menu">
+                                                                <li value="0" id="select_format">Заберу сразу по готовности</li>
+                                                                <li value="1"  id="select_format">Нужно как можно быстрее</li>
+                                                                <li value="2"  id="select_format">Заберу завтра</li>
+                                                                <li value="3"  id="select_format">Заберу после завтра</li>
+                                                                <li value="4"  id="select_format">Заберу на недели</li>
+                                                        </ul>
+                                                </div>
+                                        </div>
+                                        <div class="price_in_line">
+                                            {% if request.user_agent.is_mobile %}
+                                            <p>0 руб.</p>
+                                            {% else %}
+                                            <p>К оплате 0 руб.</p>
+                                            {% endif %}
+                                        </div>
+                                        <div id="psevdo_click" class="copy_line">
+                                            <span class="btn_copy glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                            {% if request.user_agent.is_mobile %}
+                                            <p>добавить eще</p>
+                                            {% else %}
+                                            <p>еще</p>
+                                            {% endif %}
+                                        </div>
+                                </div>
+                            </div>
+                            
+                            </div>
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 form-user">
+                            <div id="user_data" class="row">
+                                <div id="task" class="col-md-12" style='background: url("https://s22.postimg.cc/gzyyouldd/grey-paper-texture.jpg") center top;'>
+                                    <label name="call" id="id_labal_order"><input name="task" value="1" class="cb pristine" type="checkbox"> <span>Перед печатью позвонить?</span></label><br>
+                                    <div class="form-group">
+                                            <label class="col-md-12 control-label"></label>  
+                                            <div class="col-md-12 inputGroupContainer">
+                                            <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <input required="true"  id="first_name" name="first_name" placeholder="Ваше Имя (* обязательно!)" class="form-control"  type="text">
+                                              </div>
+                                            </div>
+                                          </div>
+                                                 <div class="form-group">
+                                            <label class="col-md-12 control-label"></label>  
+                                              <div class="col-md-12 inputGroupContainer">
+                                              <div class="input-group">
+                                                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                            <input required="true" id="email" name="email" placeholder="E-Mail (* обязательно!)" class="form-control"  type="text">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-md-12 control-label"></label>  
+                                              <div class="col-md-12 inputGroupContainer">
+                                              <div class="input-group">
+                                                  <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                            <input required id="phone" name="phone" placeholder="+7(xxx)xxx-xx-xx (* обязательно!)" class="form-control" type="text">
+                                              </div>
+                                            </div>
+                                          <div class="form-group">
+                                            <label class="col-md-12 control-label"></label>
+                                              <div class="col-md-12 inputGroupContainer">
+                                              <div class="input-group">
+                                                  <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                                      <textarea class="form-control" name="comment" placeholder="Дополнительное сообщение"></textarea>
+                                            </div>
+                                            </div>
+                                          </div>
+                                          <div class="hidden count_line">
+                                              <input name="count_line" type="text">0
+                                              <input id="fullprice"  name="fullprice" type="text">
+                                          </div>
+                                          <!-- Button -->
+                                          <div class="form-group">
+                                            <label class="col-md-12 control-label"></label>
+                                            <div class="col-md-12">
+                                              <button id="submit" type="submit" class="btn btn-warning" >Отправить <span class="glyphicon glyphicon-send"></span></button>
+                                            </div>
+                                          </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                            </form>
+                       </div>
+        <section>                            
+            <div id="success_message" class="col-md-12 hidden">
+            <div class="row">
+                <div class="clear_up"></div>
+                <div id="s_two" class="alert alert-success" role="alert" ><h3>Успех!<i class="glyphicon glyphicon-thumbs-up"></i> Ваша заявка будет обработана в ближайщее время!</h3>
+                                                                                    <h4>Оплатить услугу можно наличкой или  на счет</h4>
+                                                                                    Сбербанка<h5 class="num_order" id="num_order">В коментарии к заказу укажите <strong>№ заказа</strong></h5>
+                                                                                    <p class="in_order"><b>Стоимость всей услуги</b> - <strong class="check_price" id="check_price"></strong></p>
+                                                                                    <p class="in_order"><b>Номер карты</b> - <strong class="sber"></strong></p>
+                                                                                    <p class="in_order"><b>По номеру  тел.</b> - <strong class="sber_phone"></strong></p>
+                                                                                    <p class="corespondent">Получатель:</p>
+                                                                                    <p class="thanks">Благодарим за заказ!</p>
+                                                                                    </div>
+            </div>
+        
+            <div id="share">
+                    <div class="like">Мы можем быть полезны  друзьям!</div>
+                    <div class="social" data-url="" data-title="">
+                        <a class="push facebook" data-id="fb"><i class="fa fa-facebook"></i> Facebook</a>
+                        <a class="push twitter" data-id="tw"><i class="fa fa-twitter"></i> Twitter</a>
+                        <a class="push vkontakte" data-id="vk"><i class="fa fa-vk"></i> Вконтакте</a>
+                        <a class="push google" data-id="gp"><i class="fa fa-google-plus"></i> Google+</a>
+                        <a class="push ok" data-id="ok"><i class="fa fa-odnoklassniki"></i> OK</a>
+                    </div>
+                    </div>
+            </div>
+
+        </section>
+                       <div class="col-md-6 border no-padding no-gutter left">
+                           <div class="info">
+                               <h1 class="data-photo_h1">Информация</h1>
+                               <div class="info_sumernote">
+                                    {{info|safe}}
+                               </div>
+                               <button id="full_info" type="button" class="btn btn-info bt_reed" value="1">Читать далее</button>
+                           </div>
+                       </div>
+                       <div class="col-md-6 no-padding no-gutter right">
+                           <div class="photo_online">
+                                <h1 class="data-photo_h1">Цены</h1>
+                                <div class="col-md-12">
+                                        <div class="photo_print_price">
+                                            <div class="static_info"><p>Услуга</p><p>Тип бумаги</p><p>Цена1</p><p>Цена2</p><p>Цена3</p></div>
+                                            <ul id="style-9">
+                                                {% for product in price_doc %}
+                                                <li><p>{{product.format_photo}}</p><p>{{product.type_paper}}</p><p>{{product.price_smollshipment}}</p><p>{{product.price_medium_shipment}}</p><p>{{product.price_big_shipment}}</p></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </select>
+                                    <div class="row">
+                                            <div class="beautiful_content">
+                                                    <svg viewBox="0 0 1000 100">
+                                        
+                                                        <!-- Symbol -->
+                                                        <symbol id="s-text">
+                                                            <text text-anchor="middle" x="50%" y="50%" dy=".35em">
+                                                                заказать сейчас?
+                                                            </text>
+                                                        </symbol>
+                                        
+                                                        <!-- Duplicate symbols -->
+                                                        <use xlink:href="#s-text" class="text"></use>
+                                                        <use xlink:href="#s-text" class="text"></use>
+                                                        <use xlink:href="#s-text" class="text"></use>
+                                                        <use xlink:href="#s-text" class="text"></use>
+                                                        <use xlink:href="#s-text" class="text"></use>
+                                        
+                                                    </svg>
+                                                </div>
+                                    </div>                                     
+                                <div class="">
+                                        <div class="grid__item theme-12">
+                                                <button class="action"><svg class="icon icon--rewind"><use xlink:href="#icon-rewind"></use></svg></button>
+                                                <button class="particles-button">Да оформить заказ!</button>
+                                            </div>
+                                        </div>
+                                <!-- Success message -->
+                            </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </section>
+            <div class="container">
+                <div class="row no-gutter karta">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h1>НАС ЛЕГКО НАЙТИ</h1>
+                        <div class="karta_footer wow ">
+                            <a class="dg-widget-link" href="https://2gis.ru/spb/firm/70000001020807113/center/30.23671388626099,60.003706616324685/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Санкт-Петербурга</a>
+                            <div class="dg-widget-link"><a href="https://2gis.ru/spb/center/30.236378,60.003157/zoom/16/routeTab/rsType/bus/to/30.236378,60.003157╎Олтех, торгово-сервисный центр?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Олтех, торгово-сервисный центр</a></div>
+                            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                            <script charset="utf-8">
+                                new DGWidgetLoader({
+                                    "width": 400,
+                                    "height": 600,
+                                    "borderColor": "#a3a3a3",
+                                    "pos": {
+                                        "lat": 60.003706616324685,
+                                        "lon": 30.23671388626099,
+                                        "zoom": 16
+                                    },
+                                    "opt": {
+                                        "city": "spb"
+                                    },
+                                    "org": [{
+                                        "id": "70000001020807113"
+                                    }]
+                                });
+                            </script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+
+        {% include "footer.html" %}
+    </div>
+
+
+
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap_select/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'print_photo.js' %}"></script>
+    <script src="{% static 'share.js' %}"></script>
+    <script src="{% static 'print_photo_btn/anime.min.js' %}"></script>
+    <script src="{% static 'print_photo_btn/particles.js' %}"></script>
+    <script src="{% static 'print_photo_btn/demo.js' %}"></script>
+    
+    
+    {% for img in head %}
+    <div class="hidden">
+    <a href="{{img.image_header_hd.url}}" id="img_big"></a> 
+    <a href="{{img.image_header_notebook.url}}" id="img_notebook"></a>  
+    <a href="{{img.image_header_medium.url}}" id="img_medium"></a>     
+    <a href="{{img.image_header_smoll.url}}" id="img_smoll"></a> 
+    </div>
+    {% endfor %} 
+    <script>
+        $(document).ready(function() {
+            var img_big =  $("#img_big").attr("href");
+            var img_notebook =  $("#img_notebook").attr("href");
+            var img_medium =  $("#img_medium").attr("href");
+            var img_smoll =  $("#img_smoll").attr("href");
+            var width = document.body.clientWidth;
+            console.log(img_big,img_notebook)
+
+            var res = function add_image(){
+                if(width >= 1920){
+                    $('.photo_header').css('background-image', 'url(' + img_big + ')');
+                };
+                if(width >= 1366 && width <1920){
+                    $('.photo_header').css('background-image', 'url(' + img_notebook + ')');
+                };
+                if(width >= 992 && width <1366){
+                    $('.photo_header').css('background-image', 'url(' + img_medium + ')');
+                };
+                if(width < 992 && width >=768){
+                    $('.photo_header').css('background-image', 'url(' + img_medium + ')');     
+                };
+                if(width < 767){
+                    $('.photo_header').addClass('hidden').css('height', 0);         
+                };
+                
+            };
+            res();        
+            var hei = document.body.clientHeight/100*30;
+            console.log(hei);
+                function setHeiHeight() {
+                    $('.photo_header').css({
+                        height: hei  + 'px'
+                    });
+                };
+                if(width > 767){
+                $(window).resize(function() {
+                    location.reload();
+                });
+            };
+            setHeiHeight(); // устанавливаем высоту окна при первой загрузке страницы
+
+    });
+    $(".Button").click(function(){
+    $("input[type='file'").trigger('click');
+});
+
+ // stop erase animations from firing on load
+document.addEventListener("DOMContentLoaded",function() {
+    var q = document.querySelectorAll(".cb");
+    for (var i in q) {
+        if (+i < q.length) {
+            q[i].addEventListener("click",function(){
+                let c = this.classList,
+                    p = "pristine";
+                if (c.contains(p)) {
+                    c.remove(p);
+                }
+            });
+        }
+    }
+});
+$(document).ready(function(){
+    var width = document.body.clientWidth;
+    if (width <992){
+    $('.info_sumernote').css('height', 'auto');
+    var autoHeight = $('.info_sumernote').height();
+    var autoSmoll_hei = autoHeight /4 
+    $('.info_sumernote').css('height', autoSmoll_hei);
+
+    $("#full_info").click(function(){
+    $(".info_sumernote").animate({height: autoHeight}, 1500);
+    $("#full_info").addClass("hidden");
+    });
+}
+});
+    </script>
+</body>
+</html>

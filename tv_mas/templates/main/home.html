@@ -1,0 +1,358 @@
+{% extends "base_home.html" %} {% block meta %} {% for title in meta_home %}
+<title>{{title.title_on_pape}}</title>
+<meta name="description" content="{{title.description_on_pape}}">
+<meta name="keywords" content="{{title.keywords_on_pape}}">
+<meta name="yandex" content="{{title.yandex_key}}">
+<meta name="google" content="{{title.google_key}}">
+<meta name="snipet" content="{{title.snipet}}"> {% endfor %} {% endblock %} {% block head %} {% for text in top_text %}
+<div class="container-head">
+    <div class="row">
+        <div class="sub_nav">
+            <div class="col-xs-5 col-sm-2 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> {{text.telephone}}</p>
+            </div>
+            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                <p class="adres"> <span class=" glyphicon glyphicon-home"></span> {{text.address}}</p>
+            </div>
+        </div>
+        <div class="cleare"></div>
+        <!--cleare -->
+    </div>
+    <div class="hiden_afte_xs">
+        <div class="row">
+            <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4 col-xl-offset-4">
+                <div class="uslugi_masterskaya bounceInDown wow" data-wow-delay="1s">
+                    <h1>Мастерская & ФОТОЦЕНТР</h1>
+                    <p>Ремонт электроники и фотоуслуги в Приморском районе <br> качество за разумные средства - это про нас.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cleare"></div>
+        <!--cleare -->
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    
+                <div class="tv">
+                    <a href="../remont_televizorov/">
+                        <h2 class="bounceInLeft wow" data-wow-delay="1s">ремонт телевизоров</h2>
+                    </a>
+                    <a href="../remont_televizorov/">
+                    <img src="../static/img/televizor_gif.gif" alt="" style="width: 100%;">
+                    </a>
+                </div>
+                
+            </div>
+            <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xl-offset-3">
+                <div class="copy_centre">
+                    <a href="../print_docs/">
+                        <h2 class="bounceInDown wow" data-wow-delay="1s">услуги копицентра</h2>
+                    </a>
+                    <a href="../print_docs/">
+                    <img src="../static/img/kseroks.png" alt="" style="width: 100%;">
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2  col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xl-offset-2">
+                <div class="photo_centre">
+                    <a href="../print_photo/">
+                        <img src="../static/img/foto_na_dok.png" alt="" style="width: 100%;">
+                    <h2 class="bounceInRight wow" data-wow-delay="1s">услуги фотоцентра</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="photo_doc">
+                    <a href="../PHOTOS_OF_THE_DOCUMENTS/">
+                    <img src="../static/img/foto_na_dok.png" alt="" style="width: 100%;">
+                    <h2 class="bounceInLeft wow" data-wow-delay="1s">фото на документы</h2>
+                    </a>
+
+                </div>
+
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3  col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+                <div class="smartfon">
+                    <a href="../smartfon/remont_smartfonov.html">
+                    <h2 class="bounceInDown wow" data-wow-delay="1s">ремонт смартфонов</h2>
+                    
+                    <img src="../static/img/smartfon.png" alt="" style="width: 100%;">
+                    </a>
+                </div>
+                <div class="suvenirka">
+                    <a href="../suvenirka/suvenirka.html">
+                        <h2 class="bounceInUp wow" data-wow-delay="0.5s">Сувенирная продукция</h2>
+                    </a>
+                    <img src="../static/img/suvenirnayz_produktsiya.png" alt="" style="width: 100%;">
+
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xl-offset-2">
+                <div class="notebook">
+                        <a href="/remont_notebook.html/">
+                    <img src="../static/img/notebook.png" alt="" style="width: 100%;">
+                    <h2 class="bounceInRight wow" data-wow-delay="0.5s">ремонт ноутбуков</h2>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <div class="uslugi_dizainer">
+                    <img src="../static/img/uslugi_dizajnera.png" alt="" style="width: 100%;">
+                    <h2 class="bounceInLeft wow" data-wow-delay="0.5s">услуги дизайнера</h2>
+                </div>
+            </div>
+            <div class=" col-sm-3 col-md-3 col-lg-3 col-xl-3  col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xl-offset-2">
+                <div class="planshet">
+                        <a href="../smartfon/remont_smartfonov.html">
+                    <img src="../static/img/planshet gif.gif" alt="" style="width: 100%;">
+                    <h2 class="bounceInUp wow" data-wow-delay="0.5s">ремонт планшетов</h2>
+                    </a>
+                </div>
+            </div>
+            <div class=" col-sm-3 col-md-3 col-lg-3 col-xl-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+                <div class="printer">
+                    <img src="../static/img/printer_kartridj.png" alt="" style="width: 100%;">
+                    <h2 class="bounceInLeft wow" data-wow-delay="0.5s">заправка&ремонт принтеров</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--hiden to min width 768px -->
+
+<div class="container_smoll_head">
+    <div class="row">
+        <div class="sub_nav">
+            <div class="col-xs-5 col-sm-2 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> {{text.telephone}}</p>
+            </div>
+            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                <p class="adres"> <span class=" glyphicon glyphicon-home"></span> {{text.address}}</p>
+            </div>
+        </div>
+        <div class="cleare"></div>
+        <!--cleare -->
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="uslugi_masterskaya bounceInDown wow" data-wow-delay="0,5s">
+                <h1>Мастерская & ФОТОЦЕНТР</h1>
+                <p>Ремонт электроники и фотоуслуги в Приморском районе <br> качество за разумные средства - это про нас.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cleare"></div>
+    <!--cleare -->
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="tv bounceInLeft wow" data-wow-delay="0,3s">
+                <h2>ремонт телевизоров</h2>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="copy_centre bounceInRight wow" data-wow-delay="0,2s">
+                <h2>услуги копицентра</h2>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="photo_centre bounceInLeft wow" data-wow-delay="0,3s">
+                <h2>услуги фотоцентра</h2>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="photo_doc bounceInRight wow" data-wow-delay="0,2s">
+                <h2>фото на документы</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="smartfon bounceInLeft wow" data-wow-delay="0,3s">
+                    <h2>ремонт смартфонов</h2>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="notebook bounceInRight wow" data-wow-delay="0,2s">
+                    <h2>ремонт ноутбуков</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="planshet bounceInLeft wow" data-wow-delay="0,3s">
+                    <h2>ремонт планшетов</h2>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="printer bounceInRight wow" data-wow-delay="0,2s">
+                    <h2>заправка & ремонт принтеров</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="uslugi_dizainer bounceInLeft wow" data-wow-delay="0,3s">
+                    <h2>услуги дизайнера</h2>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="suvenirka bounceInRight wow" data-wow-delay="0,2s">
+                    <h2>Сувенирная продукция</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--hiden to min width 768px -->
+
+</div>
+{% endfor %} {% endblock %} {% block opisanie_uslug %}
+<div class="container  opisanie_uslug ">
+    <div class="row no-gutter smoll_stab">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="rem_op_home wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                <h1 class="wow fadeInDownBig" data-wow-duration="1.5s" data-wow-delay="0.8s">ремонт электроники</h1>
+
+                <div class="cleare_p"></div>
+
+                <div class="wow fadeInUpBig" data-wow-duration="1.5s" data-wow-delay="0.8s">
+                    <p>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_home" src="../static/img/operator.svg" alt=""> Привозите технику в мастерскую. </span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_home" src="../static/img/office-worker.svg" alt=""> Мастер осмотрит и оформит аппарат. </span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_home" src="../static/img/searching-for-work.svg" alt="">Далее проводится диагностика - БЕСПЛАТНО.</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_home" src="../static/img/reporter.svg" alt="">Оператор сообщает результат, стоимоть, срок, целесообразность!</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_home" src="../static/img/art-director.svg" alt="">Вы принимаете решение и сообщаете нам.</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_home" src="../static/img/seo-expert.svg" alt="">Ремонтируем аппарат и сообщаем готовность.</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_home" src="../static/img/accountant.svg" alt="">Принимаем оплату. Выдаем гарантию (90 дней) и аппарат.</span><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="rem_op_home_img wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="0.5s">
+            </div>
+        </div>
+    </div>
+    <div class="row no-gutter smoll_stab">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="foto_op_home_img wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="0.5s">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="foto_op_home wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                <h1 class="wow fadeInDownBig" data-wow-duration="1.5s" data-wow-delay="0.8s">фотокопицентр</h1>
+                <div class="cleare_p"></div>
+
+                <div class="wow fadeInUpBig" data-wow-duration="1.5s" data-wow-delay="0.8s">
+                    <p>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_foto" src="../static/img/copi_center_home_block/rserox.svg" alt=""> Ксерокс 7 руб.</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_foto" src="../static/img/copi_center_home_block/photo_10x15.svg" alt=""> Печать фото 10х15 от 9 руб. </span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_foto" src="../static/img/copi_center_home_block/photo_21x30.svg" alt="">Печать фото 21х30 50 руб.</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_foto" src="../static/img/copi_center_home_block/retush_photo.svg" alt="">Ретушь фото от 50 руб.</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_foto" src="../static/img/copi_center_home_block/maket.svg" alt="">Дизайн макетов от 150 руб.</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_foto" src="../static/img/copi_center_home_block/photo_na_doc.svg" alt="">Фото на док. 200 руб.</span><br>
+                        <div class="cleare_p"></div>
+                        <span> <img class="icon_rem_op_foto" src="../static/img/copi_center_home_block/photomax.svg" alt="">Широкоформатная печать</span><br>
+                        <span> <img class="icon_rem_op_foto" src="../static/img/copi_center_home_block/photo_souvenir.svg" alt="">   Фотосувениры     <img class="icon_rem_op_home lf_stub" src="../static/img/copi_center_home_block/photokeramika.svg" alt="">Фотокерамика</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %} {% block futer_plus %}
+<div class="bg"></div>
+<section>
+    <div class="container">
+        <div class="row no-gutter">
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                <div class="paralax_box wow fadeInRightBig" data-wow-duration="0.2s" data-wow-delay="0.2s">
+                    <h3>Опыт</h3>
+                    <p>Опыт мастеров более 10 лет - это говорит о многом!</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5  col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+                <div class="paralax_box wow fadeInRightBig" data-wow-duration="0.4s" data-wow-delay="0.4s">
+                    <h3>Гарантия</h3>
+                    <p>90 дней, железобетонная гарантия на выполненую работу.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5  col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xl-offset-3">
+                <div class="paralax_box wow fadeInRightBig" data-wow-duration="0.6s" data-wow-delay="0.6s">
+                    <h3>Поставщики</h3>
+                    <p>Давние, добрые отношения с поставщиками, приносят пользу клиентам.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5  col-sm-offset-5 col-md-offset-5 col-lg-offset-5 col-xl-offset-5">
+                <div class="paralax_box wow fadeInRightBig" data-wow-duration="0.7s" data-wow-delay="0.7s">
+                    <h3>Цены</h3>
+                    <p>Максимально гибкие цены которые соответствую интересам всех сторон.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5  col-sm-offset-7 col-md-offset-7 col-lg-offset-7 col-xl-offset-7">
+                <div class="paralax_box wow fadeInRightBig" data-wow-duration="0.9s" data-wow-delay="0.9s">
+                    <h3>Скидки и подарки</h3>
+                    <p>Нам приятно делать подарки и весомые скидки постоянным клиентам.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row no-gutter">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="karta_footer wow fadeInUpBig" data-wow-duration="1.2s" data-wow-delay="1.2s">
+                <a class="dg-widget-link" href="https://2gis.ru/spb/firm/70000001020807113/center/30.23671388626099,60.003706616324685/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Санкт-Петербурга</a>
+                <div class="dg-widget-link"><a href="https://2gis.ru/spb/center/30.236378,60.003157/zoom/16/routeTab/rsType/bus/to/30.236378,60.003157╎Олтех, торгово-сервисный центр?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Олтех, торгово-сервисный центр</a></div>
+                <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                <script charset="utf-8">
+                    new DGWidgetLoader({
+                        "width": 400,
+                        "height": 600,
+                        "borderColor": "#a3a3a3",
+                        "pos": {
+                            "lat": 60.003706616324685,
+                            "lon": 30.23671388626099,
+                            "zoom": 16
+                        },
+                        "opt": {
+                            "city": "spb"
+                        },
+                        "org": [{
+                            "id": "70000001020807113"
+                        }]
+                    });
+                </script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+            </div>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</section>
+{% endblock %}

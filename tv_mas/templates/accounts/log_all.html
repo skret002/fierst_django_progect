@@ -1,0 +1,31 @@
+{%load staticfiles i18n%} {% load static %}
+
+<form action="/log_all/" method="post"> {% csrf_token %}
+    <!-- <label for="username"> Имя</label>-->
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm" style="font-size: larger;font-family: 'Roboto';">Имя</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="username" id="username" style="font-size: larger;font-family: 'Roboto';">
+    </div>
+    <!-- <label for="password"> Пароль</label>>-->
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend" style="margin-top: 1em;">
+            <span class="input-group-text" id="inputGroup-sizing-sm" style="font-size: larger;font-family: 'Roboto';">Пароль</span>
+        </div>
+        <input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="password" id="password" style="font-size: larger;font-family: 'Roboto';"> {% if login_error %}
+
+        <label class="error">{{ login_error }}</label> {% endif %}
+    </div>
+    <input class="btn btn-primary btn-sm" type="submit" value="Войти" style="margin-top: 2em;font-size: larger;font-family: 'Roboto';">
+</form>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{% static 'bootstrap.min.js' %}"></script>
+<script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+<script src="{% static 'scripts.js' %}"></script>
+
+<script src="{% static 'jquery/jquery-1.11.2.min.js' %}"></script>
+<script src="{% static 'bootstrap-3.3.2/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'fancybox/jquery.fancybox.pack.js' %}"></script>

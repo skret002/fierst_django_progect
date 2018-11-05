@@ -1,0 +1,10 @@
+МОДЕЛЬ
+				DEXP G101
+			
+КАТЕГОРИЯматрицы для ноутбуков
+КАРТИНКА/home/skret002/tv_master/bin/tv_mas/templates/static/media/img/notebook/AA507688.jpg
+МОДЕЛЬ
+				DEXP G101
+			
+КАТЕГОРИЯматрицы для ноутбуков
+КАРТИНКА/home/skret002/tv_master/bin/tv_mas/templates/static/media/img/notebook/AA507688.jpg

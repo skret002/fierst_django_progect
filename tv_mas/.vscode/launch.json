@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0"
+    "configurations": [
+        {
+            "name": "Django",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "/home/skret002/tv_master/bin/python",
+            "program": "/home/skret002/tv_master/bin/tv_mas/manage.py",
+            "cwd": "/home/skret002/tv_master/tv_mas",
+            "args": [
+                "runserver",
+                "--noreload",
+                "--nothreading"
+            ],
+            "env": {},
+            "envFile": "/home/skret002/tv_master/.env",
+        }
+    ]
+}

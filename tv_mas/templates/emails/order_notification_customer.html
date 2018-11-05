@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Сообщение о заказе</title>
+</head>
+
+<body>
+    <h2>Здраствуйте {{order.customer_name}}</h2>
+    <p>Ваш заказ получен</p>
+
+    <h4>Товары в заказе</h4>
+    <ul>
+        {% for product_in_order in products_in_order %}
+        <li>{{product_in_order.product.name}} {{product_in_order.nmb}}шт. по {{product_in_order.price_per_item}} = {{product_in_order.total_price}} {% endfor %}
+        </li>
+    </ul>
+
+    <p><span>Наш менеджер свяжится с Вами в близжайшее время</span></p>
+</body>
+
+</html>

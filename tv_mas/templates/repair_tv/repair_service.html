@@ -1,0 +1,228 @@
+{% load staticfiles i18n %}
+{% load user_agents %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="RU-ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta title=" Ремонт телевизора {% for i in model %} {{i.is_brend}}  {{i.number_tv_model}}{% endfor %} в Санкт-Петербурге">
+    <meta name="description" content="Если Ваш телевизор  {% for i in model %} {{i.is_brend}}  {{i.number_tv_model}} {% endfor %} имеет проблему {% for i in tv_repair  %} {{i.service}} {% endfor %}, значит наша мастерская  то что вам нужно! ">
+    <meta name="keywords" content=" {% for i in model %} {{i.is_brend}},  {{i.number_tv_model}} {% endfor %}, {% for i in tv_repair  %} {{i.service}}, {% endfor %} Ремонт, спб, Санкт-Петербурге, Приморский">
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/jasny-bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'media.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+
+    <style>
+        input[type="text"]::-moz-placeholder {
+            color:grey; font-size: medium; text-align: center; font-family: 'Roboto';
+           }
+        input[type="text"]::-webkit-input-placeholder { color:grey; font-size: medium;text-align: center;font-family: 'Roboto'; }
+        input[type="text"]:-ms-input-placeholder { color:grey; font-size: medium;text-align: center; font-family: 'Roboto';}
+        input[type="text"]::-ms-input-placeholder { color:grey; font-size: medium;text-align: center; font-family: 'Roboto';}
+        input[type="text"]::placeholder { color:grey; font-size: medium; text-align: center;font-family: 'Roboto';}
+        textarea{color:grey; font-size: medium; text-align: center; font-family: 'Roboto';}
+    </style>
+
+</head>
+
+
+
+<body>
+    <div class="content" style="background: linear-gradient(-50deg, #1a2168, #3946c6, #343ea1, #2e3796);">
+        <div class="container_nav">
+            <div class="">
+                {% include "nav.html" %}
+                <div class="container">
+                    <div class="row">
+                        <div class="sub_nav">
+                            <div class="col-xs-5 col-sm-2 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                                <p class="tel">
+                                    <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                            </div>
+                            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                                <p class="adres">
+                                    <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container abs">
+            <div class="row">
+                <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xl-4 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-xl-offset-4">
+                    <div class="uslugi_masterskaya">
+                        <h1>Ремонт телевизора {{brend}}</h1>
+                        <p>Ремонт телевизоров в Приморском районе
+                            <br> качество за разумные средства - это про нас.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- ////////////////////////////////////// --> <div class="clearefix"></div>
+
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 col-xl-12">
+
+                    {% for i in model %} <h1 class="tv_info_h1">Информация о {{i.is_brend}} - {{i.number_tv_model}} </h1>{% endfor %}
+                </div>
+            </div>
+            <!-- ////////////////////////////////////// --> <div class="clearefix"></div>
+
+            <div class="container">
+                <div class="row">
+                    <!--LEFT BLOCK-->
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" id="v-splash">
+                        <h2 class="tv_info_h2 no_m">Характеристики</h2>
+                            <div class="model_img">
+                                    
+                            
+                                
+                            {% for i in model %} {% if i.model_photo %}{% if request|is_pc %}<img src="{{i.model_photo_big.url}}" alt="фото телевизора {{i.number_tv_model}}">{% endif %}{% if request|is_tablet %}<img src="{{i.model_photo_medium.url}}" alt="фото телевизора {{i.number_tv_model}}"> {% endif %}{% if request|is_mobile %} <img src="{{i.model_photo_smoll.url}}" alt="фото телевизора {{i.number_tv_model}}">   {% endif %}{% else %}<img src="{% static 'media/no-image.png' %}" style="width: 150px; height:  auto;">{% endif %}
+                           
+                            
+                            <div class="info_model">
+                                    {% if request|is_pc %}
+                                       {{i.info_model|safe}}
+                                       {% endif %} 
+
+
+                                       {% if request|is_tablet %}
+                                       <div id="one" style="display: none;">{{i.info_model|safe}}</div>
+                                       <p class="hid_info">
+                                            <br><br>   
+                                        <a onclick="$('#one').slideToggle('slow');" href="javascript://">Свернуть/Развернуть</a></p>    
+                                       {% endif %} 
+
+                                       {% if request|is_mobile %}
+                                        <div id="one" style="display: none;">{{i.info_model|safe}}</div>
+                                        <p class="hid_info">
+                                            <br><br>
+                                            <a onclick="$('#one').slideToggle('slow');" href="javascript://">показать состав тв  / скрыть</a></p>    
+                                       {% endif %} 
+                                </div>
+                            {% endfor %}
+                        </div>
+                            {% if request|is_mobile %}
+                            <hr>
+                            {% endif %}
+                            
+                            {% if request|is_tablet %}
+                            <hr>  
+                            {% endif %}
+                    </div>
+
+                    <!--RIGHT BLOCK-->
+                    <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6" id="v-splash">
+                        <h2 class="tv_info_h2">{% for i in tv_repair  %} {{i.service}} {% endfor %}</h2>
+                            <div class="info_model">
+                            {% for i in tv_repair %}{{i.description_service|safe}} {% endfor %}
+                            </div>
+
+                            <div class="price">
+                                <h3 class="price_model"> Cколько стоит ремонт  <span> <b>{% for i in model %} {{i.number_tv_model}}  {% endfor %}</b></span></h3>
+                                {% for i in tv_repair %}<p> Стоимость ремонта для <span>"19-24"</span> дюйма = {{i.price}}  руб. </p> {% endfor %}
+                                {% for i in tv_repair %}<p> Стоимость ремонта для <span>"32-37"</span> дюйма = {{i.price2}} руб. </p> {% endfor %}
+                                {% for i in tv_repair %}<p> Стоимость ремонта для <span>"40-42"</span> дюйма = {{i.price3}} руб. </p> {% endfor %}
+                                {% for i in tv_repair %}<p> Стоимость ремонта для <span>"47-52"</span> дюйма = {{i.price4}} руб. </p> {% endfor %}
+                                {% for i in tv_repair %}<p> Стоимость ремонта для <span>"52-55"</span> дюйма = {{i.price5}} руб. </p> {% endfor %}
+
+                                <h5>Срок ремонт обычно от 1 до 3 суток! Стоимость диагностика 0р! </h5>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <hr>
+                    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4 col-xl-4" id="map_form">
+                                            <!--LEFT PANEL-->
+                                <h2 class="map_info">Оставьте заявку - мы перезвоним</h2>
+
+                        <form class="call_order" method="POST" id="call_order" name="call order" action="" >{% csrf_token %}      
+                            <div id="form_name cl_bl"> {{form.name}} <img id="valid" class="hidden" src="{% static 'img/ok30X30.png' %}" style="float: left;width: 25px;height: auto;"> <img id="No_valid" class="hidden" src="{% static 'img/error30X30.png' %}" style="float: left;width: 25px;height: auto;"></div>           
+                            <div class="form_phone" id="form_phone cl_bl"> {{form.phone}} <img id="valid_phone" class="hidden" src="{% static 'img/ok30X30.png' %}" style="float: left;width: 25px;height: auto;"> <img id="No_valid_phone" class="hidden" src="{% static 'img/error30X30.png' %}" style="float: left;width: 25px;height: auto;">  </div>
+                            <div class="cleare"></div>
+                            <div class="time_p"><p>Выбрать удобное время звонка *</p></div>                            
+                            <div id="time cl_bl" class="time">{{form.time}}</div>        
+                            <div id="brend_tv cl_bl" class="fb_form form-control cl_bl" name="brend_tv" > {% for i in model %} Производитель - <span style="color: red;">  <b>{{i.is_brend}} </b></span> {% endfor %}</div>           
+                            <div id="model_tv cl_bl" class="fb_form form-control cl_bl" name="model_tv" > {% for i in model %} Модель телевизора -<span style="color: red;"><b> {{i.number_tv_model}}</b> </span>  {% endfor %}</div>
+                            <div id="crash cl_bl" class="fb_form form-control cl_bl" name="crash" > {% for i in tv_repair  %}  Неисправность - <span style="color: red;"><b>{{i.service}} </b></span>{% endfor %}</div>
+                            <div id="form_additional_message cl_bl">     {{form.additional_message}}</div>
+
+                            <button type="submit" class="btn btn-primary" id="send_form">ОТПРАВИТЬ</button>
+                            <p id="alert" class="hidden">Пожалуйсто заполните все поля!</p>
+                        </form>               
+                           
+                        <div id="post_form" class="price">
+                            <h3 class="price_model"> Ваша заявка принята</h3>
+                            <p> Наш менеджер свяжется с Вами  в указанное Вами время!</p>
+                            <p class="adm">С уважением Администрация</p>
+                        </div>
+
+                                  
+                            
+
+                    </div>
+
+                    <div class="col-sm-12 col-xs-12 col-md-8 col-lg-8 col-xl-8" id="map">
+                                            <!--RIGHT PANEL-->
+                                <h2 class="map_info">Как к нам добраться</h2>
+                        <div class="map_footer">
+                            <a class="dg-widget-link" href="https://2gis.ru/spb/firm/70000001020807113/center/30.23671388626099,60.003706616324685/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Санкт-Петербурга</a>
+                            <div class="dg-widget-link"><a href="https://2gis.ru/spb/center/30.236378,60.003157/zoom/16/routeTab/rsType/bus/to/30.236378,60.003157╎Олтех, торгово-сервисный центр?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Олтех, торгово-сервисный центр</a></div>
+                            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                            <script charset="utf-8">
+                                new DGWidgetLoader({
+                                    "width": 400,
+                                    "height": 600,
+                                    "borderColor": "#a3a3a3",
+                                    "pos": {
+                                        "lat": 60.003706616324685,
+                                        "lon": 30.23671388626099,
+                                        "zoom": 16
+                                    },
+                                    "opt": {
+                                        "city": "spb"
+                                    },
+                                    "org": [{
+                                        "id": "70000001020807113"
+                                    }]
+                                });
+                            </script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div> <!--container END-->
+    
+
+
+            {% include "footer.html" %}
+        </div>
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+    <script src="{% static 'choise_model.js' %}"></script>
+
+
+</body>
+
+</html>

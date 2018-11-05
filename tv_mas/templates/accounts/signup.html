@@ -1,0 +1,31 @@
+{% extends 'accounts/base.html' %} {% block content %}
+
+<h2 class="text-center reg_h1">Регистрация</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xl-offset-3">
+            <div class="form-group ">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Логин</label>{{form.username}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Имя</label>{{form.first_name}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Фамилия</label>{{form.last_name}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Email</label><br>{{form.email}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Пароль не менее 8-и символов</label><br>{{form.password1}}</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 reg_p"><label class="formGroupExampleInput" for="formGroupExampleInput">Повторите пароль</label><br>{{form.password2}}</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1em;">Зарегистрироваться</button>
+                </form>
+                <div class="reg_wellcome ">
+                    <p>Уважаемые клиенты, среднее время регистрации на нашем сайте 1-2 минуты.</p>
+                    <p>Пожалуйста уделите немного времени своему профилю</p>
+                    <p>и обещаем, пользоваться нашими услугами будет намного удобнее!</p>
+                    <p><span>C Уважением, администрация.</span></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

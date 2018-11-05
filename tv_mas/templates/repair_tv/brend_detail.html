@@ -1,0 +1,229 @@
+{% load staticfiles i18n %} {% load static %}{% load user_agents %}
+<!DOCTYPE html>
+<html lang="RU-ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta title="Ремонт телевизора {{brend}} в Приморском р-не ">
+    <meta name="description" content="Ремонт телевизора {{brend}} в Приморском р-не. Качественно и за адекватную цену - это про Нас!  ">
+    <meta name="keywords" content="{{brend}}, ремонт, СПБ, Приморский, на дом, вызвать, мастер ">
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/jasny-bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'media.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="content" style="background: linear-gradient(-50deg, #1a2168, #3946c6, #343ea1, #2e3796);">
+        <div class="container_nav">
+            <div class="">
+                {% include "nav.html" %}
+                <div class="container">
+                    <div class="row">
+                        <div class="sub_nav">
+                            <div class="col-xs-5 col-sm-2 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                                <p class="tel">
+                                    <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                            </div>
+                            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                                <p class="adres">
+                                    <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container abs">
+            <div class="row">
+                <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xl-4 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-xl-offset-4">
+                    <div class="uslugi_masterskaya">
+                        <h1>Ремонт телевизора {{brend}}</h1>
+                        <p>Ремонт телевизоров в Приморском районе
+                            <br> качество за разумные средства - это про нас.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section>
+                <div class="container brend_detail">
+                    <div class="row">
+
+                        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                            <div id="choise_field">
+                                <h1>Выберете модель Вашего телевизора {{brend.brend}}</h1>
+
+                                <form method="GET" id="search_form" name="search" action="#" role="search">
+
+                                    <div class="form-group">
+                                        <h4 class="model_option">Выберите модель телевизора</h4>
+                                        <div class="inline">
+                                            <input type="text" class="form-control" id="formGroupExampleInput" name="q" placeholder="напишите  модель тв > ENTER" value="{{request.get.q}}">
+                                            <button i type="submit" class="glyphicon glyphicon-search btn btn-primary balance_center" aria-hidden="true"></button>
+                                        </div>
+                                        {% if request.GET %}
+
+                                        <select multiple="multiple" class="form-control" id="model_tv_id" name="model_number">
+
+                                            {% for model in service_list %}
+                                            <option value="{{model.id}}">{{model}}</option>
+
+                                            {% endfor %}
+                                        </select> {% else %} {% endif %}
+
+                                    </div>
+                                    <button type="submit" id="btn_one" class="btn btn-primary">Показать проблемы этой модели</button>
+                                </form>
+                                <div class="hidden h_m">да нам изветны проблеммы данной модели, выделите свою модель > показать...</div>
+                                <hr> {% for item in servise_under_f %}
+                                    {% if item.number_tv_model and item.service %}
+                                <form method="POST" id="send_tv_service" name="search" action="{%  url 'tv_repair:RepairService' brend=brend  model=item.number_tv_model  service=item.service  %}">{% csrf_token %} 
+                                    {% else %} 
+                                <form method="POST" id="send_tv_service1" name="search" action="{%  url 'tv_repair:RepairService' brend=brend  model=item.number_tv_model   service="None" %}">{% csrf_token %}
+                                    {% endif %}{% endfor %}
+                                    <h4 class="model_option">Выберете неисправность <span style="color: red; font-size: +115%;" > {% for model in models %} {{model}} {% endfor %}</span></h4>
+                                    <select id='select_model' class="form-control custom-select" placeholder="Сначала выбрать модель" name="choiceservice">
+                                        {% if choise_model %}
+                                    <option value="{{item.id}}" > выберите свой вариант </option>
+                                        {% for item in servise_under_f %}
+                                    <option id="item_service" value="{{item.id}}" > {{item.service}} </option>
+                                    {% endfor %}
+                                    {% endif %}
+
+                                </select>
+                                    <!-- buttom -->
+                                    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 col-xl-12">
+                                        <div class="q_detail">
+                                            <label>Показать детальную информацию а также цену и сроки ремонта?</label>
+                                            <br>
+                                            <button type="submit" class="btn btn-primary" id="btn_one" style="margin-top: 0.5em;"> да </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                            <div class="form_is_none_model" id="param_a">
+                                <h1>К сожалению модели
+                                    <span id="no_model_sp">{{quare}}</span> нет в нашей базе</h1>
+                                <hr>
+                                <p>Вы можете повторить поиск нажав на кнопку
+                                    <button i id="searche_again" class="glyphicon glyphicon-search btn btn-primary balance_center" aria-hidden="true"></button> или заполнить форму ниже. Наши мастера свяжутся с Вами в близжайшее время!</p>
+                                <div class="Q_A_TV">
+                                    <form class="form_q" id="form_q" method="post" action="{% url 'tv_repair:brend_detail' brend=brend %} " enctype="multipart/form-data">{% csrf_token %}
+                                        <div class="col">
+                                            <div id="control" class="control">
+                                                <div class="form-group">
+
+                                                    <input type="text" id="you_name" class="form-control" placeholder="Ваше Имя  *** Это обязательное поле" name="you_name" required>
+                                                </div>
+
+
+                                                <div class="form-group">
+
+                                                    <input type="text" id="phone" class="form-control" placeholder="Контактный номер тел.    *** Это обязательное поле" name="phone" autocomplete="off" required>
+                                                </div>
+                                                <div class="form-group">
+
+                                                    <input type="text" id="you_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email    *** Это обязательное поле" name="you_email" required>
+                                                </div>
+                                                <div class="form-group">
+
+                                                    <input type="text" id="tv_brend" class="form-control" placeholder="Марка (Бренд) вашего телевизора" name="tv_brend">
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <input type="text" id="tv_model" class="form-control" placeholder="Модель вашего телевизора" name="tv_model">
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <textarea type="text" class="form-control" id="you_question" rows="3" name="you_question" placeholder="Ваше сообщение    *** Это обязательное поле"></textarea> </textarea>
+                                                </div>
+
+                                                <div class="custom-file">
+                                                    <label for="exampleFormControlFile1">Прикрепите файл - фото если необходимо</label>
+                                                    <input type="file" id="you_file" class="custom-file-input" name="you_file">
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-primary" id="get_form" disabled> Отправить вопрос Мастерам </button>
+
+                                    </form>
+
+                                    <div id="mesege" class=" hidden">
+                                        <h3>
+                                            Ваш вопрос получен.<br> Наш Мастер свяжется с Вами в близжайшее время!
+                                        </h3>
+                                    </div>
+                                    <div id="mesege_error" class=" hidden">
+                                        <h3>
+                                            Упс<br> Что то пошло не так, проверьте введенные данные и отправьте еще раз!
+                                        </h3>
+                                    </div>
+                                    <div id="mesege_error_field" class=" hidden">
+                                        <h3>
+                                            Заполните все необходимые поля!
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                            <h1>Коротко о {{brend}}- мнение мастеров!</h1>
+                            {% for item in tv_brend %} {{item.brend_description|safe}}{% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            {% include "footer.html" %}
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+    <script src="{% static 'choise_model.js' %}"></script>
+
+    <script>
+        if ({{m}} == '1') {
+            $("div").removeClass('hidden');
+        } else {
+
+            $("#choise_field").fadeToggle(1200);
+        }
+        if ({{m}} == '2') {
+            $("div").removeClass('form_is_none_model');
+        }
+
+        $("#searche_again").click('#choise_field', function() {
+            $("#choise_field").fadeTo(700, 1, function() {
+                $("#param_a").fadeToggle(700);
+            })
+        });
+
+    </script>
+</body>
+
+</html>

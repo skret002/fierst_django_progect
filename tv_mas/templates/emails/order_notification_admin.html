@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="RU-ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Уведомление администратору</title>
+</head>
+
+<body>
+    <h2>Здравствуйте</h2>
+    <p>У нас новый заказ</p>
+    <ul>
+        {% for key, value in order_fields.items %}
+        <li> <b>{{key}}:</b>{{value}}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+        <li>
+            <b>Имя:</b>{{order.customer_name}}
+        </li>
+        <li>
+            <b>Имейл:</b>{{order.customer_email}}
+        </li>
+        <li>
+            <b>Телефон:</b>{{order.customer_phone}}
+        </li>
+        <li>
+            <b>Сумма:</b>{{order.total_price}}
+        </li>
+    </ul>
+    <p>Товары:</p>
+    <ul>
+        {% for product_in_order in products_in_order %}
+        <li>{{product_in_order.product.name}} {{product_in_order.nmb}}шт. по {{product_in_order.price_per_item}} = {{product_in_order.total_price}} {% endfor %}
+        </li>
+    </ul>
+</body>
+
+</html>

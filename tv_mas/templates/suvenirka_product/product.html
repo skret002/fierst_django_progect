@@ -1,0 +1,281 @@
+{% load staticfiles i18n %} {% load static %}
+<!DOCTYPE html>
+<html lang="RU-ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> {% for list_produkts in list_produkt%}
+    <title> Сувенирная {{ product.name }}</title>
+    <meta name="description" content="{{ product.short_description|truncatechars_html:150 }}">
+    <meta name="keywords" content="Сувенир {{ product.name }}"> {% endfor %}
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+    </style>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'media.css' %}" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="{% static 'css/animate.css' %} ">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jasny-bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-3.3.2/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'fancybox/jquery.fancybox.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+</head>
+
+<body>
+    {% for list_produkts in list_produkt %}
+
+    <div class="content" style="background: linear-gradient(-50deg, #2f3e5c, #839cc5, #dab0f5, #8908f0);">
+        <div class="container_nav">
+            <div class="">
+                {% include "nav.html" %}
+                <div class="container">
+                    <div class="row">
+                        <div class="sub_nav">
+                            <div class="col-xs-5 col-sm-2 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                                <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                            </div>
+                            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                                <p class="adres"> <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="cart">
+            <ul class="nav" style="display: -webkit-flex;display: flex;width: 100%;">
+                <div class=" col-xs-6 col-sm-6 col-md-4 col-xl-2 col-xl-offset-1">
+
+                    <div class="login">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {% if request.user.is_anonymous %}
+
+                        <a id="go" href=""> Войти</a>| <a href="/signup/">Регистрация</a> {% else %} {{ request.user.first_name }} <br>
+                        <a href="/accounts/profile_view/">Перейти в кабинет</a> | <a href="{% url 'logout' %}">Выйти</a> {% endif %}
+                    </div>
+                </div>
+                <div class=" col-xs-6 col-sm-6 col-md-6 col-xl-4  col-sm-offset-6 col-md-offset-6 col-xl-offset-8">
+                    <div class="basket-container">
+                        <a class="cart_href" href="">Корзина <span id="basket_total_amount"></span><span id="basket_total_nmb">
+                                            {% if products_total_nmb > 4 %}
+                                                ({{ products_total_nmb }} товаров) 
+                                                
+                                                    {% elif products_total_nmb == 1 %}
+                                                        ({{ products_total_nmb }} товар)  
+                                                    {% elif products_total_nmb > 1 < 5 %}
+                                                        ({{ products_total_nmb }} товара)     
+                                                    {% else %}
+                                                        еще пуста
+                                            {% endif %}
+                                        </span></a>
+                        <div class="basket-items">
+                            <ul class="basket_table">
+                                {% for product_in_basket in products_in_basket %}
+                                <li class="basket_row"> {{ product_in_basket.product.name }} {{ product_in_basket.nmb }} шт. по {{ product_in_basket.price_per_item }} Руб.
+                                    <a class="delete-item" href="" data-product_id="{{ product_in_basket.id }}">x</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <p class="oformlenie">
+                            <a class="oformlenie_a" href="{% url 'checkout'  %}">
+                                                Оформить заказ
+                                            </a>
+                        </p>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6  ">
+                                {% for image_item in product.productimage_set.all %} {% if product.productimage_set.all.count == 1 %}
+                                <div class="col-sm-12 col-md-12 col-sm-12 col-xl-12 col-xs-12 thumb img_product">
+                                    <a href="{{image_item.image.url}}" class="fancyimage" rel="group" href="bootstrap3-image-gallery-600-400/001.jpg">
+                                        <img class="img-responsive" src="{{image_item.image.url}}" />
+                                    </a>
+                                </div>
+                                {% else %}
+                                <div class="col-sm-6 col-md-6  col-xl-6 col-xs-6 thumb">
+                                    <a href="{{image_item.image.url}}" class="fancyimage" rel="group" href="bootstrap3-image-gallery-600-400/001.jpg">
+                                        <img class="img-responsive" src="{{image_item.image.url}}" />
+                                    </a>
+                                </div>
+                                {% endif %} {% endfor %}
+                            </div>
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <h1 class="text-center pr_name">
+                                    {{ product.name }}
+                                </h1>
+                                <div class="">
+                                    <p>
+                                        Цена: {{ product.price }}
+                                    </p>
+
+                                    {% if product.discount %}
+                                    <p>Сейчас скидка {{ product.discount }} руб.</p>
+
+                                    {% else %} {% endif %}
+                                </div>
+
+
+                                <div>
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active">
+                                            <a href="#description" aria-controls="home" role="tab" data-toggle="tab">
+                                Описание
+                            </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#delivery" aria-controls="profile" role="tab" data-toggle="tab">
+                                Доставка
+                            </a>
+                                        </li>
+                                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Вопрос</a></li>
+
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content product-description-tabs">
+                                        <div role="tabpanel" class="tab-pane active" id="description">
+                                            {{ product.description }}
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="delivery">
+                                            <h3>Как мы выполняем доставку</h3>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="messages">
+                                            <!-- if not user -->
+                                            {% if request.user.is_anonymous %}
+                                            <div class="col-xs-12 col-sm-12 col-lg-10 col-md-10 col-xl-8">
+                                                <form action="#" method="post">
+                                                    {% csrf_token %}
+                                                    <div class="quest">
+                                                        {{ form}}
+
+
+                                                    </div>
+                                                    <input type="submit" class="btn btn-primary pd" value="Отправить" />
+                                                </form>
+                                            </div>
+                                            {% else %}
+                                            <!-- if have user -->
+                                            <div class="col-xs-12 col-sm-12 col-lg-10 col-md-10 col-xl-8">
+                                                <form action="#" method="post">
+                                                    {% csrf_token %}
+                                                    <div class="quest">
+                                                        <h4>Сообщение</h4>
+                                                        {{ form.you_question}}
+
+
+                                                    </div>
+                                                    <input type="submit" class="btn btn-primary pd" value="Отправить" />
+                                                </form>
+                                            </div>
+                                            {% endif %}
+                                            <!-- if have user end -->
+                                        </div>
+                                        <div class="cleare"></div>
+                                        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 col-xl-12">
+
+                                    <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
+                                        <div class="choice_color_prod">
+                                            {% for prod_color in product.colorfield_set.all %}
+                                            <label class="checkbox-inline"><input name="color" id="color"  type="checkbox" value="{{prod_color.name}}" style="width: 60px;">
+                                <a href="{{prod_color.color_img.url}}" class="fancyimage color_choise_img " rel="group" href="bootstrap3-image-gallery-600-400/001.jpg" >
+                                    <img class="img-responsive" src="{{prod_color.color_img.url}}" style="width: 20px;height: 20px;border-radius: 20px;" />
+                                </a>
+                                {{prod_color.name}}  
+                            </label> {% endfor %}
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" name="number" id="number" placeholder="введите кол-во">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" id="submit_btn" class="btn btn-success btn-buy" data-product_id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.price }}">
+                                    Заказать
+                                </button>
+                                        </div>
+                                    </form>
+                                    <div class="mesege">
+                                        <h3>
+                                            {% if messages %} {% for message in messages %} {% if "html_safe" in message.tags %} {{ message|safe }} {% else %} {{ message }} {% endif %} {% endfor %} {% endif %}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %} {% block checkout %} {% endblock %} {% include "footer.html" %}
+
+        <div id="modal_form">
+            <!-- Сaмo oкнo -->
+            <span id="modal_close">X</span>
+            <!-- Кнoпкa зaкрыть -->
+            {% include "accounts/log_all.html" %}
+        </div>
+        <div id="overlay"></div>
+        <!-- Пoдлoжкa -->
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{% static 'bootstrap.min.js' %}"></script>
+        <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+        <script src="{% static 'scripts.js' %}"></script>
+
+        <script src="{% static 'jquery/jquery-1.11.2.min.js' %}"></script>
+        <script src="{% static 'bootstrap-3.3.2/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'fancybox/jquery.fancybox.pack.js' %}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("a.fancyimage").fancybox();
+            });
+            $(document).ready(function() { // вся мaгия пoсле зaгрузки стрaницы
+                $('a#go').click(function(event) { // лoвим клик пo ссылки с id="go"
+                    event.preventDefault(); // выключaем стaндaртную рoль элементa
+                    $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+                        function() { // пoсле выпoлнения предъидущей aнимaции
+                            $('#modal_form')
+                                .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                                .animate({
+                                    opacity: 1,
+                                    top: '50%'
+                                }, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+                        });
+                });
+                /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+                $('#modal_close, #overlay').click(function() { // лoвим клик пo крестику или пoдлoжке
+                    $('#modal_form')
+                        .animate({
+                                opacity: 0,
+                                top: '45%'
+                            }, 200, // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+                            function() { // пoсле aнимaции
+                                $(this).css('display', 'none'); // делaем ему display: none;
+                                $('#overlay').fadeOut(400); // скрывaем пoдлoжку
+                            }
+                        );
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>

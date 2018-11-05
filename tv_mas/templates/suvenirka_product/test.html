@@ -1,0 +1,43 @@
+{% load staticfiles i18n %}
+{% load static %}
+<form action="" method="get">
+            {{ form.as_p }}
+            <input type="submit" value="Поиск">
+    </form>
+{% block tovars_in_category  %}
+
+                            {% for product_image in products_images_krugka %}
+
+<div class="col-lg-4">
+        <div class="product-item">
+            <div>
+                <a href="{% url 'product' product_image.product.id %}">
+                    <div class="produkt_img img-responsive" style="background-image: url(/{{product_image.image.url}})";>
+                    </div>
+                </a>
+            </div>
+    
+            <h3>{{ product_image.product.name }}</h3>
+            <p style="height: auto;overflow-wrap: break-word;">
+                {{ product_image.product.description|truncatechars_html:150 }}
+            </p>
+            <div class="cena">
+                {{ product_image.product.price }} РУБ
+            </div>
+            {% if product_image.product.discount %}
+            <div class="discount-container">
+                <span> цена по акции {{ product_image.product.discount }}</span>
+            </div>
+             {% endif %}
+            <div class="add-to-card-btn">
+                <button class="btn btn-success">
+                    Добавить в корзину
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    
+                
+    {% endblock  %}

@@ -1,0 +1,382 @@
+{% load staticfiles i18n %} {% load static %}{% load user_agents %}
+<!DOCTYPE html>
+<html lang="RU-ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="title" content="Фото на документы онлайн от ПРОФИ!">
+    <meta name="description" content="Фото на документы онлайн - любой документ, так же срочное фото на документы с печатью, Санкт-Петербурге. Приморский р-он">
+    <meta name="keywords" content="фото на документы онлайн, рядом, профи, спб, Санкт-Петербурге, Приморский р-он ">
+    <link href="{% static 'style_smarfon.css' %}" rel="stylesheet">
+    <link href="{% static 'media_smarfon.css' %}" rel="stylesheet">
+    <link href="{% static 'photo.css' %}" rel="stylesheet">
+    <link href="{% static 'photo_media.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jasny-bootstrap.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'bootstrap_select/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+
+
+</head>
+<style>
+    .isolayer {
+        margin-top: 50px;
+        margin-left: 10px;
+    }
+</style>
+
+<body>
+    <div class="content" style="background: linear-gradient(-50deg, #1a2168, #3946c6, #343ea1, #2e3796);">
+        <div class="container_nav">
+            <div class="">
+                {% include "nav.html" %}
+                <div class="container">
+                    <div class="row">
+                        <div class="sub_nav">
+                            <div class="col-xs-5 col-sm-5 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                                <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                            </div>
+                            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-0 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                                <p class="adres"> <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container" >
+            <div class="row">
+                <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xl-4 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-xl-offset-4 no-padding" id='header_smoll'>
+                    <div class="uslugi_masterskaya" >
+                        <h1>Фото на документы</h1>
+                        <p>Мы делаем <b>ФОТО</b> которые принимают сразу!</p>
+                    </div>
+                </div>
+                <div class=".hidden-xs  .hidden-sm col-lg-12 col-md-12 col-xl-12  no-padding title_in_head">
+                    <div class="photo_header">
+                        <div class="t_h">
+                            {% for title in head%}
+                            {% if title.title %}
+                            {{title.title|safe}}
+                            {%else%}
+                            {%endif%}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <section class="data-photo" id="data-photo">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-md-6 border no-padding no-gutter">
+                           <div class="info">
+                               <h1 class="data-photo_h1">Информация</h1>
+                               <div class="info_sumernote">
+                                    {{info|safe}}
+                               </div>
+                               <button id="full_info" type="button" class="btn btn-info bt_reed" value="1">Читать далее</button>
+                           </div>
+                       </div>
+                       <div class="col-md-6 no-padding no-gutter">
+                           <div class="photo_online">
+                                <h1 class="data-photo_h1">ON-LINE заказ</h1>
+                                <div class="col-md-12">
+                                <form method="POST" name="order" action="{%  url 'photo:photo_order'%}" id="order_photo" class="order_photo" enctype="multipart/form-data" >{% csrf_token %}
+                                    <select name="select_id" id="select_document"  class="selectpicker" title="Выбрать тип документа">
+                                        {% for option in document_type %}
+                                            <option  name="select_id" id="type_doc" value="{{option.id}}">{{option.name_document}}</option>
+                                        {% endfor%}
+                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img id="ukazatel" src="{% static 'upppppp.png' %}" alt="">
+                                        </div>
+                                    </div>                                     
+                                    <div class="info_doc">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                    <img id="img_prev" src=""> 
+                                                    <div id="position">
+                                                        <p class="name_document"></p>
+                                                        <p class="count"> </p>
+                                                        <p class="options_photo"></p>
+                                                        <p class="full_price_photo"></p>
+                                                        <p class="edit_price_photo"></p>
+                                                    </div>
+
+                                                    <!--this work JS -->
+                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="show_order"class="order_doc hidden">
+                                            <h2>Для заказа <strong id="id_order"></strong>  сейчас</h2>
+                                            <div id="fields_order">
+                                                <!--this work JS -->
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        {% if detect != 'ios' %}
+                                                        <a class="Button"  data-tooltip="Не более: 15MB"><span class="Button__textWrapper"><span class="Button__text">Загрузить фото</span><span class="Button__icon" aria-hidden="true"></span></span></a>
+                                                        <input id="img" class="hidden" multiple accept="image/*" name="image"/ type="file">
+                                                        {% else %}
+                                                        <input id="img" class="img_input" multiple accept="image/*" name="image"/ type="file">
+                                                        {% endif %}
+                                                        <ol class="trebovaniya">
+                                                            <li>Желательно светлый и однотонный фон</li>
+                                                            <li>Не хмурьтесь</li>
+                                                            <li>Смотрите четко в камеру</li>
+                                                            <li>Голова должна быть в кадре полностью</li>
+                                                            <li>НЕ ИСПОЛЬЗУЙТЕ РЕТУШ СМАРТФОНА</li>
+                                                            <li>Не вносите изменений в фото!</li>
+                                                        </ol>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h4 id="h4_primer_photo">Пример фото</h4>
+                                                        <div id="preview_photo" >
+                                                                <img id="img-preview" src="{% static 'primer_photo.jpg' %}" />
+                                                                <img id="img_primer_chaild"  src="{% static 'primer_photo_child.jpg' %}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div id="task" class="col-md-12" style='background: url("https://s22.postimg.cc/gzyyouldd/grey-paper-texture.jpg") center top;'>
+                                                        <label name="task" id="id_labal_order_one"><input name="task" value="1" class="cb pristine" type="checkbox"> <span>Обработать и выслать на почту</span></label><br>
+                                                        <label name="task" id="id_labal_order"><input name="task" value="2" class="cb pristine" type="checkbox"> <span>Распечатать блок фото</span></label><br>
+                                                        <label name="task" id="id_labal_order"><input name="task" value="3" class="cb pristine" type="checkbox"> <span>Распечатать и выслать на почту</span></label><br>
+                                                        <div class="form-group">
+                                                                <label class="col-md-12 control-label"></label>  
+                                                                <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                                <input required="true"  id="first_name" name="first_name" placeholder="Ваше Имя (* обязательно!)" class="form-control"  type="text">
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                                     <div class="form-group">
+                                                                <label class="col-md-12 control-label"></label>  
+                                                                  <div class="col-md-12 inputGroupContainer">
+                                                                  <div class="input-group">
+                                                                      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                                                <input required="true" id="email" name="email" placeholder="E-Mail (* обязательно!)" class="form-control"  type="text">
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              <div class="form-group">
+                                                                <label class="col-md-12 control-label"></label>  
+                                                                  <div class="col-md-12 inputGroupContainer">
+                                                                  <div class="input-group">
+                                                                      <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                                                <input required id="phone" name="phone" placeholder="+7(xxx)xxx-xx-xx (* обязательно!)" class="form-control" type="text">
+                                                                  </div>
+                                                                </div>
+                                                              <div class="form-group">
+                                                                <label class="col-md-12 control-label"></label>
+                                                                  <div class="col-md-12 inputGroupContainer">
+                                                                  <div class="input-group">
+                                                                      <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                                                          <textarea class="form-control" name="comment" placeholder="Дополнительное сообщение"></textarea>
+                                                                </div>
+                                                                </div>
+                                                              </div>
+                                                              
+                                                              <!-- Button -->
+                                                              <div class="form-group">
+                                                                <label class="col-md-12 control-label"></label>
+                                                                <div class="col-md-12">
+                                                                  <button id="submit" type="submit" class="btn btn-warning" >Отправить <span class="glyphicon glyphicon-send"></span></button>
+                                                                </div>
+                                                              </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </form>
+                                <!-- Success message -->
+                            </div>
+                            <div id="success_message" class="col-md-12 hidden">
+                                <div class="row">
+                                    <div id="s_one" class="alert alert-success" role="alert" ><h3>Успех!<i class="glyphicon glyphicon-thumbs-up"></i> Ваша заявка будет обработана сразу после оплаты на счет
+                                                                                                    Сбербанка</h3><h5 class="num_order" id="num_order">В коментарии к заказу укажите <strong>№ заказа  </strong></h5>
+                                                                                                    <p class="in_order"><b>Стоимость всей услуги</b> - <strong id="check_price"></strong></p>
+                                                                                                    <p class="in_order"><b>Номер карты</b> - <strong class="sber"></strong></p>
+                                                                                                    <p class="in_order"><b>По номеру тел.</b> - <strong class="sber_phone"></strong></p> 
+                                                                                                    <p class="corespondent">Получатель:</p>
+                                                                                                    <p class="thanks">Благодарим за заказ!</p>
+                                                                                                    </div>
+                                    <div id="s_two" class="alert alert-success" role="alert" ><h3>Успех!<i class="glyphicon glyphicon-thumbs-up"></i> Ваша заявка будет обработана в ближайщее время!</h3>
+                                                                                                        <h4>Оплатить услугу можно наличкой или  на счет</h4>
+                                                                                                        Сбербанка<h5 class="num_order" id="num_order">В коментарии к заказу укажите <strong>№ заказа</strong></h5>
+                                                                                                        <p class="in_order"><b>Стоимость всей услуги</b> - <strong class="check_price" id="check_price"></strong></p>
+                                                                                                        <p class="in_order"><b>Номер карты</b> - <strong class="sber"></strong></p>
+                                                                                                        <p class="in_order"><b>По номеру  тел.</b> - <strong class="sber_phone"></strong></p>
+                                                                                                        <p class="corespondent">Получатель:</p>
+                                                                                                        <p class="thanks">Благодарим за заказ!</p>
+                                                                                                        </div>
+                                </div>
+                            
+                                <div id="share">
+                                        <div class="like">Мы можем быть полезны  друзьям!</div>
+                                        <div class="social" data-url="<?php the_permalink(); ?>" data-title="<?php the_title(); ?>">
+                                            <a class="push facebook" data-id="fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                            <a class="push twitter" data-id="tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                            <a class="push vkontakte" data-id="vk"><i class="fa fa-vk"></i> Вконтакте</a>
+                                            <a class="push google" data-id="gp"><i class="fa fa-google-plus"></i> Google+</a>
+                                            <a class="push ok" data-id="ok"><i class="fa fa-odnoklassniki"></i> OK</a>
+                                        </div>
+                                        </div>
+                            </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </section>
+            <div class="container">
+                <div class="row no-gutter karta">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h1>НАС ЛЕГКО НАЙТИ</h1>
+                        <div class="karta_footer wow ">
+                            <a class="dg-widget-link" href="https://2gis.ru/spb/firm/70000001020807113/center/30.23671388626099,60.003706616324685/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Санкт-Петербурга</a>
+                            <div class="dg-widget-link"><a href="https://2gis.ru/spb/center/30.236378,60.003157/zoom/16/routeTab/rsType/bus/to/30.236378,60.003157╎Олтех, торгово-сервисный центр?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Олтех, торгово-сервисный центр</a></div>
+                            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                            <script charset="utf-8">
+                                new DGWidgetLoader({
+                                    "width": 400,
+                                    "height": 600,
+                                    "borderColor": "#a3a3a3",
+                                    "pos": {
+                                        "lat": 60.003706616324685,
+                                        "lon": 30.23671388626099,
+                                        "zoom": 16
+                                    },
+                                    "opt": {
+                                        "city": "spb"
+                                    },
+                                    "org": [{
+                                        "id": "70000001020807113"
+                                    }]
+                                });
+                            </script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+
+        {% include "footer.html" %}
+    </div>
+
+
+
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap_select/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'photo.js' %}"></script>
+    <script src="{% static 'share.js' %}"></script>
+    
+    {% for img in head %}
+    <div class="hidden">
+    <a href="{{img.image_header_hd.url}}" id="img_big"></a> 
+    <a href="{{img.image_header_notebook.url}}" id="img_notebook"></a>  
+    <a href="{{img.image_header_medium.url}}" id="img_medium"></a>     
+    <a href="{{img.image_header_smoll.url}}" id="img_smoll"></a> 
+    </div>
+    {% endfor %} 
+    <script>
+        $(document).ready(function() {
+            var img_big =  $("#img_big").attr("href");
+            var img_notebook =  $("#img_notebook").attr("href");
+            var img_medium =  $("#img_medium").attr("href");
+            var img_smoll =  $("#img_smoll").attr("href");
+            var width = document.body.clientWidth;
+            console.log(img_big,img_notebook)
+
+            var res = function add_image(){
+                if(width >= 1920){
+                    $('.photo_header').css('background-image', 'url(' + img_big + ')');
+                    a=1;
+                };
+                if(width >= 1366 && width <1920){
+                    $('.photo_header').css('background-image', 'url(' + img_notebook + ')');
+                    a=2;
+                };
+                if(width >= 992 && width <1366){
+                    $('.photo_header').css('background-image', 'url(' + img_medium + ')');
+                    a=3;
+                };
+                if(width < 992 && width >=768){
+                    $('.photo_header').css('background-image', 'url(' + img_medium + ')');
+                    a=4;
+                };
+                if(width < 767){
+                    $('.photo_header').addClass('hidden').css('height', 0);
+                    a='скрываю';
+                };
+                    return(a);
+            };
+            res();        
+            console.log(res());
+            var hei = document.body.clientHeight/100*30;
+            console.log(hei);
+                function setHeiHeight() {
+                    $('.photo_header').css({
+                        height: hei  + 'px'
+                    });
+                };
+                if(width > 767){
+                $(window).resize(function() {
+                    location.reload();
+                });
+            };
+            setHeiHeight(); // устанавливаем высоту окна при первой загрузке страницы
+
+    });
+    $(".Button").click(function(){
+    $("input[type='file'").trigger('click');
+});
+
+ // stop erase animations from firing on load
+document.addEventListener("DOMContentLoaded",function() {
+    var q = document.querySelectorAll(".cb");
+    for (var i in q) {
+        if (+i < q.length) {
+            q[i].addEventListener("click",function(){
+                let c = this.classList,
+                    p = "pristine";
+                if (c.contains(p)) {
+                    c.remove(p);
+                }
+            });
+        }
+    }
+});
+$(document).ready(function(){
+    var width = document.body.clientWidth;
+    if (width <992){
+    $('.info_sumernote').css('height', 'auto');
+    var autoHeight = $('.info_sumernote').height();
+    var autoSmoll_hei = autoHeight /4 
+    $('.info_sumernote').css('height', autoSmoll_hei);
+
+    $("#full_info").click(function(){
+    $(".info_sumernote").animate({height: autoHeight}, 1500);
+    $("#full_info").addClass("hidden");
+    });
+}
+});
+    </script>
+</body>
+</html>

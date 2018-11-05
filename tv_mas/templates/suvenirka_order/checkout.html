@@ -1,0 +1,254 @@
+{% load staticfiles i18n %} {% load static %}
+<!DOCTYPE html>
+<html lang="RU-ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'media.css' %}" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="{% static 'css/animate.css' %} ">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jasny-bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-3.3.2/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'fancybox/jquery.fancybox.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+</head>
+<div class="content" style="background: linear-gradient(-50deg, #2f3e5c, #839cc5, #dab0f5, #8908f0);">
+    <div class="container_nav">
+        <div class="">
+            {% include "nav.html" %}
+            <div class="container">
+                <div class="row">
+                    <div class="sub_nav">
+                        <div class="col-xs-5 col-sm-2 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                            <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                        </div>
+                        <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                            <p class="adres"> <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% block checkout %}
+    <div class="container">
+        <div class="row">
+            {% if products_in_basket %}
+            <div class="col-lg-8 col-lg-offset-2">
+                <h3 class="text-center oformlenie_zakaza">Оформление заказа</h3>
+                {% if request.user.is_anonymous %}
+                <h5 class="text-center oformlenie_zakaza_h5">Пожалуйста заполните все необходимые поля или авторизуйтесь > <a id="go" href=""> Войти</a></h5>
+                {% else %}
+                <h5 class="text-center oformlenie_zakaza_h5">Пожалуйста проверьте ваши данные</h5>
+                {% endif %} {% if request.user.is_anonymous %}
+                <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="checkout_register_table">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Имя</label>
+                                            <span class="form-error">{{ form.name.errors }}</span>
+                                            <input type="text" name="{{ form.name.html_name }}" class="form-control" value="{{ request.POST.name }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Телефон</label>
+                                            <span class="form-error">{{ form.phone.errors }}</span>
+                                            <input type="text" name="{{ form.phone.html_name }}" class="form-control" value="{{ request.POST.phone }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Адрес доставки</label>
+                                            <span class="form-error"><ul><li>Не обязательное поле.</li></ul></span>
+                                            <input type="text" name="{{ form.address_dostavka.html_name }}" class="form-control" value="{{ request.POST.address_dostavka }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="col-lg-8">
+                                        <div class="form-group">
+                                            <label>Коментарий к заказу</label>
+                                            <span class="form-error"><ul><li>Не обязательное поле.</li></ul></span>
+                                            <input type="text" name="{{ form.comment_zakaz.html_name }}" class="form-control" value="{{ request.POST.comment_zakaz }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <span class="form-error">{{ form.email.errors }}</span>
+                                            <input type="text" name="{{ form.email.html_name }}" class="form-control" value="{{ request.POST.email }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% else %}
+                    <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+                        <div class="check_have_user list-group">
+
+                            {% for user in user_view %}
+
+                            <p class="col-xs-12 col-sm-6 col-lg-6 col-xl-6 list-group-item ">Имя: {{user.first_name}}</p>
+                            <p class="col-xs-12 col-sm-6 col-lg-6 col-xl-6 list-group-item ">Фамилия: {{user.last_name}}</p>
+                            <p class="col-xs-12 col-sm-6 col-lg-6 col-xl-6 list-group-item ">Email: {{user.email}}</p>
+                            <p class="col-xs-12 col-sm-6 col-lg-6 col-xl-6 list-group-item ">Контактный номер: {{user.profile.tel_number}}</p>
+                            <p class="col-xs-12 col-sm-6 col-lg-6 col-xl-6 list-group-item ">Дополнительный номер: {{user.profile.tel_number_two}}</p>
+                            <p class="col-xs-12 col-sm-6 col-lg-6 col-xl-6 list-group-item ">Адрес доставки: {{user.profile.location}}</p>
+                            <div class="form-group">
+                                <label style="margin-top:1em">Коментарий к заказу</label>
+                                <span class="form-error"><ul><li>Не обязательное поле.</li></ul></span>
+                                <input type="text" name="{{ form.comment_zakaz.html_name }}" class="form-control" value="{{ request.POST.comment_zakaz }}">
+                            </div>
+                            <p class="col-xs-4 col-sm-3 col-lg-2 col-xl-2 col-xs-offset-8 col-sm-offset-9 col-lg-offset-10 col-xl-offset-10"><a class="btn btn-primary" href="/accounts/profile/" target="_blank" role="button" style="margin-top: 1em;">Изменить данные</a></p>
+                            <p class="cleare"></p>
+                            {% endfor %}
+                        </div>
+
+                        {% endif %}
+                        <div class="col-lg-8 col-lg-offset-2">
+
+                            <h3 class="text-center tovars_in_basket">Товары в корзине</h3>
+                        </div>
+                        <table class="table text-center table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="tovars_teble">Название товара</th>
+                                    <th class="tovars_teble">Цвет товара</th>
+                                    <th class="tovars_teble">Загрузите ваши фото</th>
+                                    <th class="tovars_teble">Количество</th>
+                                    <th class="tovars_teble">Цена за еденицу</th>
+                                    <th class="tovars_teble">Общая цена</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+                                {% for product_in_basket in products_in_basket %}
+                                <tr>
+                                    <td>
+                                        {{ product_in_basket.product.name }}
+
+                                    </td>
+
+                                    <td>
+                                        {{ product_in_basket.color_check }}
+
+                                    </td>
+                                    <td>
+
+
+                                        {{ form.image}} {% if messages %}
+                                        <p class="error" style="color: red;">
+                                            {% for message in messages %} {% if "html_safe" in message.tags %} {{ message|safe }}
+                                        </p>
+                                        {% else %} {{ message }} {% endif %} {% endfor %} {% endif %}
+                                    </td>
+
+                                    <td>
+                                        <input value="{{ product_in_basket.nmb }}" type="number" class="product-in-basket-nmb" name="product_in_basket_{{ product_in_basket.id }}">
+
+                                    </td>
+
+                                    <td>
+                                        <span class="product-price">
+                                                {{ product_in_basket.price_per_item}}
+                                            </span>
+                                    </td>
+                                    <td>
+                                        <span class="total-product-in-basket-amount">
+                                                {{ product_in_basket.total_price }}
+                                            </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <div class="text-right" style="font-size: large;font-weight: 700;">
+                            <b>Сумма заказа: </b> <span id="total_order_amount">54</span>
+                        </div>
+
+                        <hr>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary btn-lg">Заказать</button>
+                        </div>
+                    </form>
+                </form>
+
+            </div>
+            {% elif request.session.some_variable %}
+            <h3 class="text-center final_checkout">Благодарим за заказ {% if user.last_name %} {{user.last_name}}{% endif %}! <br> Наш менеджер свяжется с Вами в ближайшее время!</h3>
+
+            {% else %}
+            <h3 class="text-center final_checkout">В Вашей корзине нет товаров</h3>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div id="modal_form">
+        <!-- Сaмo oкнo -->
+        <span id="modal_close">X</span>
+        <!-- Кнoпкa зaкрыть -->
+        {% include "accounts/log_all.html" %}
+    </div>
+    <div id="overlay"></div>
+    <!-- Пoдлoжкa -->
+
+    {% endblock %} {% include "footer.html" %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+    <script src="{% static 'scripts.js' %}"></script>
+
+    <script src="{% static 'jquery/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.2/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fancybox/jquery.fancybox.pack.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("a.fancyimage").fancybox();
+        });
+        $(document).ready(function() { // вся мaгия пoсле зaгрузки стрaницы
+            $('a#go').click(function(event) { // лoвим клик пo ссылки с id="go"
+                event.preventDefault(); // выключaем стaндaртную рoль элементa
+                $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+                    function() { // пoсле выпoлнения предъидущей aнимaции
+                        $('#modal_form')
+                            .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                            .animate({
+                                opacity: 1,
+                                top: '50%'
+                            }, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+                    });
+            });
+            /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+            $('#modal_close, #overlay').click(function() { // лoвим клик пo крестику или пoдлoжке
+                $('#modal_form')
+                    .animate({
+                            opacity: 0,
+                            top: '45%'
+                        }, 200, // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+                        function() { // пoсле aнимaции
+                            $(this).css('display', 'none'); // делaем ему display: none;
+                            $('#overlay').fadeOut(400); // скрывaем пoдлoжку
+                        }
+                    );
+            });
+        });
+    </script>
+    </body>
+
+</html>

@@ -1,0 +1,497 @@
+body{
+  overflow-x:hidden;  /*для горизонтального*/
+}
+.photo_header{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.no-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.data-photo_h1{
+    color: #9bd1ff;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: xx-large;
+}
+.border{
+    border-right: 2px solid whitesmoke;
+}
+.karta h1 {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 700 !important;
+    color: white;
+}
+#img_prev{
+    max-width: 180px;
+    height: auto;
+    float: left;
+}
+.info_doc{
+    margin-top: 20px;
+}
+.info_doc p{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    color: white;
+    font-size:  large;
+}
+#position{
+    text-align: start;
+    float: inline-start;
+    float: inherit;
+    margin-left: 40px;
+}
+.order_doc h2{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    color: white;
+}
+.Button__text{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    color: white;
+    font-size: large;
+}
+#h4_primer_photo{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    color: white;
+    font-size: x-large;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.trebovaniya{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    color: white;
+    margin-top: 1em;
+    font-size: large;
+    text-align: start;
+
+}
+.Button{
+    margin-top: 2em;
+}
+#img-preview, #img_primer_chaild{
+    width: 100%;
+    height: auto;
+}
+
+.Button__textWrapper, .Button__text, .Button__icon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+  
+  .Button__text, .Button__icon {
+    transition: top 500ms;
+  }
+  
+  .Button {
+    display: inline-block;
+    position: relative;
+    background-color: #0CBABA;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 1000px;
+    width: 200px;
+    height: 60px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7), inset 0 1px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    transition: background-color 500ms, -webkit-transform 100ms;
+    transition: background-color 500ms, transform 100ms;
+    transition: background-color 500ms, transform 100ms, -webkit-transform 100ms;
+  }
+  .Button__textWrapper {
+    overflow: hidden;
+  }
+  .Button__text {
+    line-height: 60px;
+    top: 0;
+  }
+  .Button__icon {
+    top: 100%;
+    background: url("https://cl.ly/0X3o100h2H0g/icon-download.svg") no-repeat center center;
+  }
+  .Button::before {
+    content: attr(data-tooltip);
+    width: 140px;
+    height: 60px;
+    background-color: #EEB868;
+    font-size: 1rem;
+    border-radius: .25em;
+    line-height: 60px;
+    bottom: 90px;
+    left: calc(50% - 70px);
+  }
+  .Button::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #EEB868;
+    left: calc(50% - 10px);
+    bottom: 70px;
+  }
+  .Button::before, .Button::after {
+    position: absolute;
+    opacity: 0;
+    transition: all 500ms;
+    visibility: hidden;
+  }
+  .Button:hover {
+    background-color: #01BAEF;
+  }
+  .Button:hover .Button__text {
+    top: -100%;
+  }
+  .Button:hover .Button__icon {
+    top: 0;
+  }
+  .Button:hover::before, .Button:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  .Button:hover::after {
+    bottom: 60px;
+  }
+  .Button:hover::before {
+    bottom: 80px;
+  }
+  .Button:active {
+    -webkit-transform: translate(2px, 2px);
+            transform: translate(2px, 2px);
+  }
+
+  /* checkbox */
+/* Animation */
+
+  label {
+    display: block;
+    margin-bottom: 1.5em;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .cb {
+    box-shadow: 0 0 0 0.125em rgba(0, 0, 0, 0.75) inset;
+    display: inline-block;
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+  .cb:before, .cb:after {
+    content: "";
+    display: block;
+    position: absolute;
+  }
+  .cb:before {
+    animation: eraseA 0.5s steps(1) forwards;
+    background: url("https://s22.postimg.cc/fi4blx4gx/checkmark.png") 0 100%/1.2em 1.35em no-repeat;
+    bottom: 0.2em;
+    left: 0.3em;
+    width: 0;
+    height: 1.35em;
+  }
+  .cb:after {
+    animation: eraseB 0.5s linear forwards;
+    background: linear-gradient(rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50%) 11.2em 0, linear-gradient(#c8646e, #c8646e) 11.2em 0, linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6) 0.1em, rgba(255, 255, 255, 0) 0.1em, rgba(255, 255, 255, 0) 0.2em, rgba(0, 0, 0, 0.2) 0.2em, rgba(0, 0, 0, 0.2) 0.3em, rgba(0, 0, 0, 0) 0.3em) 9.8em 0/0.3em 100%, repeating-linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6) 0.1em, rgba(255, 255, 255, 0) 0.1em, rgba(255, 255, 255, 0) 0.2em) 10.2em 0/0.5em 100%, linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6) 0.1em, rgba(255, 255, 255, 0) 0.1em, rgba(255, 255, 255, 0) 0.2em, rgba(0, 0, 0, 0.2) 0.2em, rgba(0, 0, 0, 0.2) 0.3em, rgba(0, 0, 0, 0) 0.3em) 10.8em 0/0.3em 100%, linear-gradient(rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.6) 35%, rgba(255, 255, 255, 0.6) 65%, rgba(255, 255, 255, 0) 65%) 9.7em 0, linear-gradient(#b4b4b4, #b4b4b4) 9.7em 0, linear-gradient(rgba(0, 0, 0, 0.1) 27%, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0) 73%, rgba(0, 0, 0, 0.2) 73%) 2em 0, linear-gradient(#f0d000, #f0d000) 2em 0, linear-gradient(-14deg, #1e1e1e 18%, rgba(30, 30, 30, 0) 20%) 0 0/0.5em 0.5em, linear-gradient(14deg, rgba(30, 30, 30, 0) 80%, #1e1e1e 83%) 0 0.5em/0.5em 0.5em, linear-gradient(-14deg, #d2a078 48%, rgba(210, 160, 120, 0) 50%) 0 0/2em 0.5em, linear-gradient(14deg, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.1) 50%) 0 0.5em/2em 0.5em, linear-gradient(14deg, rgba(210, 160, 120, 0) 48%, #d2a078 50%) 0 0.5em/2em 0.5em;
+    background-repeat: no-repeat;
+    border-radius: 0 0.1em 0.1em 0;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: 0 0.25em;
+    width: 12em;
+    height: 1em;
+  }
+  .cb:checked {
+    background-color: transparent;
+  }
+  .cb:checked:before {
+    animation: drawA 0.5s linear forwards;
+  }
+  .cb:checked:after {
+    animation: drawB 0.5s linear;
+  }
+  .cb:focus {
+    outline: transparent;
+  }
+  .cb:focus + span {
+    color: rgba(0, 0, 0, 0.75);
+    outline: transparent;
+  }
+  
+  .pristine:before, .pristine:after {
+    animation: none;
+  }
+  
+  @keyframes drawA {
+    from, 5% {
+      width: 0;
+      height: 1.35em;
+    }
+    90%, to {
+      width: 1.2em;
+      height: 1.35em;
+    }
+  }
+  @keyframes drawB {
+    from {
+      opacity: 0;
+      transform: translate(0em, -0.5em) rotate(-50deg);
+      visibility: visible;
+    }
+    5% {
+      opacity: 1;
+      transform: translate(0em, 0.3em) rotate(-60deg);
+    }
+    17% {
+      transform: translate(0.25em, 0.8em) rotate(-65deg);
+    }
+    79% {
+      transform: translate(1.1em, -0.14em) rotate(-63deg);
+    }
+    90% {
+      opacity: 1;
+      transform: translate(1.2em, -0.15em) rotate(-63deg);
+    }
+    to {
+      opacity: 0;
+      transform: translate(1.25em, -1.7em) rotate(-63deg);
+    }
+  }
+  @keyframes eraseA {
+    from {
+      width: 1.2em;
+      height: 1.35em;
+    }
+    10% {
+      width: 1.2em;
+      height: 1.08em;
+    }
+    27% {
+      width: 1.2em;
+      height: 0.81em;
+    }
+    36% {
+      width: 1.2em;
+      height: 0.7em;
+    }
+    45% {
+      width: 1.2em;
+      height: 0.55em;
+    }
+    55% {
+      width: 1.2em;
+      height: 0.35em;
+    }
+    80%, to {
+      width: 1.2em;
+      height: 0;
+    }
+  }
+  @keyframes eraseB {
+    from {
+      opacity: 0;
+      transform: translate(0.6em, -12.2em) rotate(90deg);
+      visibility: visible;
+    }
+    10% {
+      opacity: 1;
+      transform: translate(1.2em, -12.05em) rotate(90deg);
+    }
+    20% {
+      transform: translate(0.6em, -11.9em) rotate(90deg);
+    }
+    30% {
+      transform: translate(1.2em, -11.75em) rotate(90deg);
+    }
+    40% {
+      transform: translate(0.6em, -11.6em) rotate(90deg);
+    }
+    50% {
+      transform: translate(1.2em, -11.45em) rotate(90deg);
+    }
+    60% {
+      transform: translate(0.6em, -11.3em) rotate(90deg);
+    }
+    70% {
+      transform: translate(1.2em, -11.15em) rotate(90deg);
+    }
+    80% {
+      transform: translate(0.6em, -11em) rotate(90deg);
+    }
+    90% {
+      opacity: 1;
+      transform: translate(2em, -12.5em) rotate(100deg);
+    }
+    to {
+      opacity: 0;
+      transform: translate(2em, -12.5em) rotate(100deg);
+    }
+  }
+
+/* checkbox */
+#task{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 700 !important;
+    text-align: left;
+    margin-top: 2em;
+    line-height: 1.5;
+    font-size: medium;
+    padding: 15px;
+}
+#id_labal_order_one{
+    margin-left: 15px;
+    margin-top: 15px;
+}
+#id_labal_order{
+    margin-left: 15px;
+}
+.alert-success, .alert-success h3, .alert-success h5, .alert-success h4{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: x-large;
+  font-weight: 500;
+  text-align: center;
+}
+.in_order, .corespondent{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: large;
+  font-weight: 500;
+  text-align: center;
+}
+.thanks{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: large;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: red;
+  text-transform: uppercase;
+  text-decoration-line: underline;
+}
+.alert-success strong{
+  color: red !important;
+}
+
+/* SHARE SOCIAL LINK in share.js */
+#share {
+	width:100%;
+	border:1px solid #eaeaea;
+	margin: 0 auto;
+	background:#fff;
+	text-align:center;
+}
+.like {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 50px;
+}
+.push {
+	display: inline-block;
+	width: 17%;
+	min-width: 100px;
+	line-height: 40px;
+	margin: 5px 2px 20px 2px;
+	font-size: 15px;
+	text-align: center;
+	color:#fff;
+	cursor: pointer;
+}
+ 
+.facebook {background-color:#3b5998;}
+.facebook:hover {background-color:#2d4373; color:#fff;}
+.google {background-color:#dd4b39;}
+.google:hover {background-color:#c23321; color:#fff;}
+.twitter {background-color:#55acee;}
+.twitter:hover {background-color:#2795e9; color:#fff;}
+.vkontakte {background-color:#587ea3;}
+.vkontakte:hover {background-color:#466482; color:#fff;}
+.ok {background-color:#ee8208;}
+.ok:hover {background-color:#ee7808; color:#fff;}
+
+/* uploud button  for ios  */
+.img_input {
+  background-color: royalblue;
+  color: wheat;
+  font-size: medium;
+}
+
+.info_sumernote{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.photo_print_price{
+  background-color: #1b1f5b;
+  width: 80%;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.photo_print_price ul{
+  height: 200px;
+  overflow-y: auto;
+  padding-left: 0px
+}
+.photo_print_price ul li{
+  display: inline-flex;
+  width: 100%;
+}
+.photo_print_price ul li > p{
+  width: 20%;
+  text-align: center;
+  color: #ECC25C;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+}
+.static_info{
+  display: inline-flex;
+  color: #fafbfd;
+  text-transform: uppercase;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  width: 100%;
+
+}
+.static_info > p {
+  width: 20%;
+  font-size: larger;
+  margin-top: 5px;
+
+}
+
+/* scrolling style */
+#style-9::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-9::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-9::-webkit-scrollbar-thumb
+{
+	background-color: #F90;	
+	background-image: -webkit-linear-gradient(90deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+</head>
+
+<body>
+    <form class="#" method="GET" acrion="{% url 'tv_repair:serch_servis' %}" role="search">
+        <div class="input-group-btn">
+            <input type="text" class="form-control" name="q" placeholder="Поиск" value="{{request.get.q}}" <button type="submit" class="#" />
+            <span></span>
+            <button type=submit>Search</button>
+        </div>
+
+    </form>
+
+
+    {{service_list}}
+</body>
+
+</html>

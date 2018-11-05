@@ -1,0 +1,370 @@
+{% load staticfiles i18n %} {% load static %}
+<!DOCTYPE html>
+<html lang="RU-ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="title" content="{{model_name}} - {{problem}}   в Санкт-Петербурге.">
+    <meta name="description" content="Ремонт {{model_name}},{{problem}} - в Санкт-Петербурге. Качество за разумные средства - это про нас.">
+    <meta name="keywords" content="{{model_name}}, {{problem}}, Санкт-Петербурге, СПБ, приморский ">
+    <link href="{% static 'style_smarfon.css' %}" rel="stylesheet">
+    <link href="{% static 'media_smarfon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jasny-bootstrap.min.css' %}" rel="stylesheet"> 
+        <!--подключаем карусель-->
+    <link href="{% static 'carousel/css/jquery.jscrollpane.css' %}" rel="stylesheet"> 
+    <link href="{% static 'carousel/css/style.css' %}" rel="stylesheet"> 
+    <!-- Latest compiled and minified CSS -->
+    <link href="{% static 'bootstrap_select/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="content" style="background: linear-gradient(-50deg, #1a2168, #3946c6, #343ea1, #2e3796);">
+        <div class="container_nav">
+            <div class="">
+                {% include "nav.html" %}
+                <div class="container">
+                    <div class="row">
+                        <div class="sub_nav">
+                            <div class="col-xs-5 col-sm-12 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                                <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                            </div>
+                            <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                                <p class="adres"> <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--ТЕЛО ОСНОВНОЕ-->
+        <div class="clearfix"></div>
+        <section>
+            <div class="container">
+                <div class="row">
+                        <div class="col-xs-10 col-sm-8 col-md-6 col-lg-6 col-xl-6 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 col-xl-offset-3">
+                            <div class="uslugi_masterskaya">
+                                <h1>Ремонт Ноутбука {% if model_name %} {{model_name}} {% endif %}</h1>
+                                <p>Ремонт  ноутбуков & компьютеров в Приморском районе
+                                    <br> качество за разумные средства - это про нас.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+        </section>
+        <section class="card_product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+                        <div class="repair_name"><h2 class="repair_h2">
+                            {% for item in product %} {{item.name_service}} {% endfor %}
+                        </h2></div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 left product"> 
+                                {% for item in product %}
+                            <a href="#" class="thumbnail">
+                                <img class="product_img" src="{{item.image_part_base_medium.url}}" href="{{item.image_part_base_big.url}}" alt="...">
+                            </a>
+                            {% endfor %}
+                        </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-9 bg">
+                        <div class="produkt_info_card">
+                                {% for item in product %}
+                                <p class="product_part">Наличие: 
+                                        {% if item.available_part.id == 1%}
+                                        <span >ремонт уже сегодня</span>
+                                        {% elif item.available_part.id == 2  %}
+                                        <span>требуется предзаказ(1-2 дн.)</span>
+                                        {% elif item.available_part.id == 3  %}
+                                        <span>Сейчас запчасти нет</span>
+                                        {% endif %}
+                                    </p>
+                                    <p class="product_part">Качество:
+                                        {% if item.quality_part.id == 1%}
+                                        <span><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><span class=" half_star"><img class="star half" src="{% static 'star.png' %}" ></span></span>
+                                        {% elif item.quality_part.id == 2  %}
+                                        <span><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><span class=" half_star"><img class="star half" src="{% static 'star.png' %}" ></span></span>
+                                        {% elif item.quality_part.id == 3  %}
+                                        <span><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><span class=" half_star"></span></span>
+                                        {% elif item.quality_part.id == 4  %}
+                                        <span><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><img class="star" src="{% static 'star.png' %}" ><span class=" half_star"></span></span>
+                                        {% endif%}
+                                </p>
+                                <p class="products_sale">Скидка по акции :
+                                        {% if item.price_sale%}
+                                        <span class="product_sale">{{item.price_sale}}руб.</span>
+                                        {% else %}
+                                        <span class="product_sale">скидки нет</span>
+                                        {% endif %}
+                                </p>
+                                <p class="product_time_on_repairs">Время на ремонт:
+                                        {% if item.time_on_repairs%}
+                                        <span class="time_on_repairs">{{item.time_on_repairs}}</span>
+                                        {% else %}
+                                        <span class="time_on_repairs">требуется уточнить</span>
+                                        {% endif %}
+                                </p>
+                                <div class="product_repair_place">
+                                    {% if item.repair_place.id == 1 %}
+                                    <p class="in_sc"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  В сервисе</p>
+                                    <p class="product_in_home_now"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  На выезде</p>
+                                    {% elif item.repair_place.id == 2 %}
+                                    <p class="product_in_sc"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  В сервисе</p>
+                                    <p class="product_in_home_ok"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  На выезде</p>
+                                        {%  endif %}
+                                </div>
+                                <p class="product_full_prise">цена за все: <span>{{item.full_prise}}<span class="glyphicon glyphicon-rub"></span></p>
+                                
+                                <div class="product_btn_group">
+                                    <a href="#order" class="btns"><button type="button" class="product_order" id="product_order_button"
+                                        data-name="{{item.name_service}}"
+                                        data-id="{{item.id}}">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>Заказать</button></a>
+                                </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="description_card">
+                                <h4>Подробнее</h4>
+                                {{item.description_service}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="info_about_service">
+                    <div class="row">
+                            <div class="dop_info_service">
+                                <h3>Как все происходит (взаимодействие клиент-сервис)</h3>
+                                    {% for text in dopinfoservice%}
+                                    {{text.client_sc|safe}}
+                                    {%endfor%}
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="dop_info_service">
+                                <h3>Кто ремонтирует, обязательства, нормативные документы</h3>
+                                {% for text in dopinfoservice%}
+                                {{text.info_sc|safe}}
+                                {%endfor%}
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="dop_info_service">
+                                <h3>О ценах и гарантии</h3>
+                                {% for text in dopinfoservice%}
+                                {{text.info_prise|safe}}
+                                {%endfor%}
+                            </div>
+                </div>
+            </div>
+        </div>
+
+        </section>
+            <!--Map-->
+            <div class="container">
+                    <div class="row no-gutter advantage">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <h1>НАС ЛЕГКО НАЙТИ</h1>
+                            <div id="karta_footer" class="karta_footer ">
+                                <a class="dg-widget-link" href="https://2gis.ru/spb/firm/70000001020807113/center/30.23671388626099,60.003706616324685/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Санкт-Петербурга</a>
+                                <div class="dg-widget-link"><a href="https://2gis.ru/spb/center/30.236378,60.003157/zoom/16/routeTab/rsType/bus/to/30.236378,60.003157╎Олтех, торгово-сервисный центр?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Олтех, торгово-сервисный центр</a></div>
+                                <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                                <script charset="utf-8">
+                                    new DGWidgetLoader({
+                                        "width": 400,
+                                        "height": 600,
+                                        "borderColor": "#a3a3a3",
+                                        "pos": {
+                                            "lat": 60.003706616324685,
+                                            "lon": 30.23671388626099,
+                                            "zoom": 16
+                                        },
+                                        "opt": {
+                                            "city": "spb"
+                                        },
+                                        "org": [{
+                                            "id": "70000001020807113"
+                                        }]
+                                    });
+                                </script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--КОНЕЦ ТЕЛА-->
+        {% include "footer.html" %}
+    </div>
+
+    <!--modal image-->
+        <div class="modal fade" id="image-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close crap_close" data-dismiss="modal" aria-label="Close"><span hidden="true">×</span></button>
+                      <div class="modal-title">Просмотр изображения</div>
+                    </div>
+                    <div class="modal-body">
+                      <img class="img-responsive center-block" src="" alt="">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               
+         
+<!-- Модальное Окно Заказа --> 
+<div class="dm-overlay" id="order">
+    <div class="dm-table">
+        <div class="dm-cell">
+            <div class="dm-modal modal_form_order" id="modal_form_one">
+                <a href="#close" class="close"></a>
+                <h3>Заказ</h3>
+                <form class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-xl-8 col-xs-offset-0 col-sm-offset-1  col-md-offset-1 col-lg-offset-1 col-xl-offset-2" id="product_order" method="POST" name="order" action="">{% csrf_token %} 
+                    <div class="form-group">
+                            <div class="form-row">
+                                    <div class="col form_as_div">
+                                        {{ form_order.as_div }}
+                                        <div id="delivery1" class="delivery hidden">
+                                        {%for i in outservice%} 
+                                            {%if i.id == 1%}
+                                                {{i.text_out_service|safe}}
+                                            {% endif %}
+                                        {% endfor %}
+                                        </div>
+                                        <div id="delivery2" class="delivery hidden">
+                                        {%for i in outservice%} 
+                                            {%if i.id == 2%}
+                                                {{i.text_out_service|safe}}
+                                            {% endif %}
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>   
+                    </div>
+                    <button type="submit" class="send_order"><span class="glyphicon glyphicon-shopping-cart"></span>Заказать</button>
+            </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Модальное Окно Ошибки заказа  --> 
+<div class="dm-overlay" id="order_error">
+        <div class="dm-table">
+            <div class="dm-cell">
+                <div class="dm-modal modal_form_order" id="modal_form_one">
+                    <a href="#close" class="close"></a>
+                    <h3>Внимание</h3>
+                    <div class="error_block">
+                        <p>Вы не верно оформили заявку</p>
+                        <p>Проверьте данные и отправьте еще раз!</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Модальное Окно заказ успешен  --> 
+<div class="dm-overlay" id="success_order">
+        <div class="dm-table">
+            <div class="dm-cell">
+                <div class="dm-modal modal_form_order" id="modal_form_one">
+                    <a href="#close" class="close"></a>
+                    <h3>Спасибо за заказ!</h3>
+                    <div class="error_block">
+                        <p>Ваш заказ принят в обработку</p>
+                        <p>В ближайшее время с вами свяжется наш менеджер.</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Пoдлoжкa -->
+        <div id="overlay_one"></div>
+        <!-- Пoдлoжкa -->
+
+<!--Модальный окна " преимуществ "-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fancybox/jquery.fancybox.pack.js' %}"></script>
+    <script src="{% static 'notebook_filter_form.js' %}"></script>
+    <!--подключаем карусель-->
+
+    <script src="{% static 'carousel/js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'carousel/js/jquery.contentcarousel.js' %}"></script>
+    <script src="{% static 'carousel/js/jquery.mousewheel.js' %}"></script>
+    <!-- Latest compiled and minified JavaScript "SELECT" -->
+    <script src="{% static 'bootstrap_select/bootstrap-select.min.js' %}"></script>
+    <script type="text/javascript">
+        $('#ca-container').contentcarousel();
+
+        // После загрузки DOM-дерева (страницы)
+        $(function() {     
+          //при нажатии на ссылку, содержащую Thumbnail
+          $('a.thumbnail').click(function(e) {
+            //отменить стандартное действие браузера
+            e.preventDefault();
+            //присвоить атрибуту scr элемента img модального окна
+            //значение атрибута scr изображения, которое обёрнуто
+            //вокруг элемента a, на который нажал пользователь
+            $('#image-modal .modal-body img ').attr('src', $(this).find('img').attr('href'));
+            //открыть модальное окно
+            $("#image-modal").modal('show');
+          });
+          //при нажатию на изображение внутри модального окна 
+          //закрыть его (модальное окно)
+          $('#image-modal .modal-body img').on('click', function() {
+            $("#image-modal").modal('hide')
+          });
+        });
+
+          
+        //начальные данные в форму ордер
+        $('#product_order_button').click(function() {
+        var initial_data_name = $(this).attr('data-name');
+        var initial_data_id = $(this).attr('data-id');
+        $('#id_order_problem_name').val(initial_data_name);
+        $('#id_order_problem_id').val("000" + initial_data_id);
+        });
+
+        $('#id_order_option').on('change', function() {
+            var change_val = this.value;
+            if (change_val == 1){
+            $("#delivery1").removeClass( 'hidden');
+            }
+            else{
+                $("#delivery1").addClass( 'hidden');
+              };
+              if (change_val == 2){
+                $("#delivery2").removeClass( 'hidden');
+                }
+                else{
+                    $("#delivery2").addClass( 'hidden');
+                  };
+            ;
+          })
+        
+    </script>
+
+
+</body>
+
+</html>

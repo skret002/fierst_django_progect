@@ -1,0 +1,284 @@
+{% load staticfiles i18n %} {% load static %}
+<div class="view">
+
+    <section class="page page--mover">
+        <div class="la-square-loader">
+            <div></div>
+        </div>
+    </section>
+    <div class="title-wrap">
+        <h1 class="title title--main"></h1>
+        <p class="title title--sub"></p>
+    </div>
+    <section class="page page--static">
+        <div class="page__title">
+        </div>
+        <ul class="grid">
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/krugka_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/krugki.png' %}" alt="Сувенирные кружки с своим изображением" />
+                    <h3 class="grid__item-title">Кружки</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/chehlu_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/iphone_auto_173_png.png' %}" alt="Футболки с своим изображением" />
+                    <h3 class="grid__item-title">Чехлы для iPHONE</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/futbolki_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/futbolki_sublimaciya.png' %}" alt="Футболки с своим изображением" />
+                    <h3 class="grid__item-title">Футболки</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/tarelki_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/tarelki.png' %}" alt="Тарелки с своим изображением" />
+                    <h3 class="grid__item-title">Тарелки</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/watch_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/plastic_chasi.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">Фоточасы</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/pazlu_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/puzzle.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">фотопазлы</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/kalendari_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/kalendari_na_tkani.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">фотокалендари</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/podushki_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/podushki.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">подушки</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/magnitu_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/magniti.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">фотомагниты</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/poster_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/poster.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">постеры</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/bs_fl.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/flag_kepka.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">бейсболки и флаги</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/nabor_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/nabor_kitchen.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">наборы для кухни</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/meshki_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/meshochki.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">мешочек для подарка</h3>
+                </a>
+            </li>
+            <li class="grid__item">
+                <a class="grid__link" href="suvenirka/drugie_product.html">
+                    <img class="grid__img" src="{% static 'img/kategorii_suvenrka/prochee.png' %}" alt="с своим изображением" />
+                    <h3 class="grid__item-title">Другие ФОТОСУВЕНИРЫ</h3>
+                </a>
+            </li>
+        </ul>
+
+        <!-- load ajax start -->
+        <section id="post_load">
+            <ul class="grid">
+                <li class="grid__item">
+                    <a class="grid__link" href="suvenirka/pano_product.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/pano_goroda_i_strani.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">пано на кафеле</h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link" href="suvenirka/holst_product.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/foto_na_holste.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">печать на холсте</h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link" href="suvenirka/sumki_i_obuv_product.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/sumki_dlya_obuvi.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">сумки для обуви</h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link" href="suvenirka/kolaj_na_holste_product.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/kollazh.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">колаж на холсте</h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link" href="suvenirka/shirokofor_pechat.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/shirokoformat.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">широкоформатная печать</h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link" href="suvenirka/r_kartin.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/suvenirka_png1/reprodukcii.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">репродукция картин</h3>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- load ajax end -->
+        <!-- load ajax start -->
+        <section id="post_load2">
+            <ul class="grid">
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/domovue_znaki.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/znachki_dom/tablichki_ob.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">домовые знаки <br> <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/info_znaki.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/znachki_dom/informacion.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">информационные <br> знаки</h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/tablichki_plastik.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/znachki_dom/tablichki_plastic.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">таблички на пластике <br> <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/tablichki_fsk.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/znachki_dom/ees.jpg' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">таблички для <br> фск еэс<br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/teh_tablichki.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/znachki_dom/shildi.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">технические таблички <br> и шильды <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/neft_gaz.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/znachki_dom/neft_gaz.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">для нефтяной и <br> газовой отросли<br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/jd_dorogi.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/znachki_dom/zheltznodor.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">для железных <br> дорог<br> </h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/portret_pamyatnik.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/portret.jpg' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">портрет для памятника <br> <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/ritualnue_tablichki.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/tablichki_metal_farfor.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">ритуальные таблички <br> <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/kompozicii.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/im.jpg' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">художественные <br> композиции <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/graf_kompozicii.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/grafica.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">графические <br> композиции <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/arki_kompozicii.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/arki_.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">арки и композиции <br> сложной формы <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/keramika_izo.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/obiomn_fotokeramika.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">керамика с обьёмным <br> изображением <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/gold_arnamentu.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/zolotie.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">золотые арнаменты <br> <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/metal_photo.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/metallofoto.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">Металлофото <br> <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/grafiti.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/gravirovka.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">Имитация гравировки <br> (керамогранит) <br></h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/portretu_pod_jivopis.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/grizail.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">Портреты с обработкой<br> под живопись <br> и гризайль</h3>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a class="grid__link div_popravka" href="suvenirka/foto_na_stekle.html">
+                        <img class="grid__img" src="{% static 'img/kategorii_suvenrka/ritualka/steklo.png' %}" alt="с своим изображением" />
+                        <h3 class="grid__item-title">Фото на стекле <br> <br></h3>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- load ajax end -->
+
+
+        <button class="button button--load" aria-label="Load more images">
+					<svg class="polaroid" width="100%" height="100%" viewBox="0 0 220 243" preserveAspectRatio="xMidYMid meet">
+						<rect class="polaroid__base" x="0" y="0" width="220" height="243" rx="5"></rect>
+						<rect class="polaroid__inner" x="16" y="20" width="189" height="149"></rect>
+						<g class="polaroid__loader">
+							<circle cx="61.5" cy="94.5" r="17.5"></circle>
+							<circle cx="110.5" cy="94.5" r="17.5"></circle>
+							<circle cx="159.5" cy="94.5" r="17.5"></circle>
+						</g>
+					</svg>
+					<span class="button__text">смотреть еще</span>
+				</button>
+    </section>
+    <div class="device">
+        <div class="device__screen"></div>
+    </div>
+    <button id="showgrid" class="button button--view" aria-label="Show me more">
+				<svg width="100%" height="100%" viewBox="0 0 310 177" preserveAspectRatio="xMidYMid meet">
+					<path fill="#FFFFFF" d="M159.875,174.481L306.945,27.41c2.93-2.929,2.93-7.678,0-10.606L292.803,2.661c-1.406-1.407-3.314-2.197-5.303-2.197c-1.989,0-3.896,0.79-5.303,2.197L154.572,130.287L26.946,2.661c-1.406-1.407-3.314-2.197-5.303-2.197c-1.989,0-3.897,0.79-5.303,2.197L2.197,16.804C0.733,18.269,0,20.188,0,22.107s0.732,3.839,2.197,5.303l147.071,147.071C152.197,177.411,156.945,177.411,159.875,174.481L159.875,174.481z" />
+				</svg>
+			</button>
+
+</div>
+<!-- /view -->

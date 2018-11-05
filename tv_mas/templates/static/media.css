@@ -1,0 +1,949 @@
+
+/* СПЕЦИАЛЬНАЯ ВСТАВКА ДЛЯ НЕ СТАНДАРТНЫХ РАЗМЕРОВ */
+
+@media (min-width: 769px) {
+    /* СЕЦИАЛЬНАЯ ВСТАВКА */
+    .container_smoll_head {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 786px) {
+    .tel {
+        width: 200% !important;
+    }
+    .rem_op_home span {
+        font-size: 1em;
+    }
+}
+
+
+/* end */
+
+@media (min-width: 280px) and (max-width: 1920px) {
+    /* STYLES HERE */
+}
+
+@media (min-width: 580px) and (max-width: 690px) {
+    /* STYLES HERE */
+    .filter_produkt {
+        margin-top: 0px !important;
+    }
+    .tv h2,
+    .notebook h2,
+    .smartfon h2,
+    .uslugi_dizainer h2,
+    .planshet h2,
+    .suvenirka h2,
+    .photo_centre h2,
+    .copy_centre h2,
+    .photo_doc h2,
+    .printer h2 {
+        font-size: 1.6em;
+    }
+    .uslugi_masterskaya p {
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+}
+
+@media (min-width: 410px) and (max-width: 580px) {
+    /* STYLES HERE */
+    .filter_produkt {
+        margin-top: 0px !important;
+    }
+    .container {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .tv h2,
+    .notebook h2,
+    .smartfon h2,
+    .uslugi_dizainer h2,
+    .planshet h2,
+    .suvenirka h2,
+    .photo_centre h2,
+    .copy_centre h2,
+    .photo_doc h2,
+    .printer h2 {
+        font-size: 1.4em;
+    }
+    .uslugi_masterskaya p {
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+    .uslugi_masterskaya h1 {
+        font-size: 2em;
+    }
+    .tv {
+        background-size: contain !important;
+        height: 200px !important;
+    }
+    .photo_centre {
+        background-size: contain !important;
+        background-position-y: 4em !important;
+        background-position-x: -1em !important;
+    }
+    .photo_doc {
+        background-size: contain !important;
+        background-position-y: 4em !important;
+        background-position-x: -1em !important;
+    }
+    .notebook {
+        background-size: contain !important;
+        background-position-y: 4em !important;
+        background-position-x: 2em !important;
+    }
+    .planshet {
+        background-size: contain;
+        height: 200px;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .printer {
+        background-size: contain;
+        height: 200px;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .printer h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .uslugi_dizainer {
+        background-size: contain;
+        height: 200px;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .uslugi_dizainer h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .suvenirka {
+        background-size: contain;
+        height: 200px;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .copy_centre {
+        background-size: 50% !important;
+        height: 200px !important;
+        background-position: center !important;
+        background-position-y: 3em !important;
+    }
+    .copy_centre {
+        padding-top: 0%;
+    }
+    .photo_doc img {
+        position: inherit;
+        height: 200px;
+        width: auto !important;
+        padding-top: 0%;
+    }
+    .uslugi_dizainer img {
+        margin-top: 250px;
+        width: auto !important;
+    }
+    .planshet img {
+        margin-top: 250px;
+        margin-left: 250px;
+        width: auto !important;
+    }
+    .printer img {
+        margin-top: 250px;
+        width: auto !important;
+    }
+    .smartfon {
+        height: 165px !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 410px) {
+    /* STYLES HERE */
+    .container {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .tel,
+    .menu {
+        font-size: 1.1em;
+    }
+    .tv h2,
+    .notebook h2,
+    .smartfon h2,
+    .uslugi_dizainer h2,
+    .planshet h2,
+    .suvenirka h2,
+    .photo_centre h2,
+    .copy_centre h2,
+    .photo_doc h2,
+    .printer h2 {
+        font-size: 1.3em;
+    }
+    .uslugi_masterskaya {
+        margin-top: 1em;
+    }
+    .uslugi_masterskaya p {
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+    .uslugi_masterskaya h1 {
+        font-size: 1.6em;
+    }
+    .tv {
+        background-size: contain !important;
+        height: 150px !important;
+    }
+    .photo_centre {
+        background-size: contain !important;
+        background-position-y: 4em !important;
+        background-position-x: -1em !important;
+        height: 150px !important;
+    }
+    .photo_doc {
+        background-size: contain !important;
+        background-position-y: 4em !important;
+        background-position-x: -1em !important;
+        height: 150px !important;
+    }
+    .notebook {
+        background-size: contain !important;
+        background-position-y: 4em !important;
+        background-position-x: 2em !important;
+        height: 150px !important;
+    }
+    .planshet {
+        background-size: contain;
+        height: 150px !important;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .printer {
+        background-size: contain;
+        height: 150px !important;
+        background-position: center;
+        background-position-y: 3.5em !important;
+    }
+    .printer h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .uslugi_dizainer {
+        background-size: contain;
+        height: 150px !important;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .uslugi_dizainer h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .suvenirka {
+        background-size: contain;
+        height: 150px !important;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .copy_centre {
+        background-size: 50% !important;
+        height: 150px !important;
+        background-position: center !important;
+        background-position-y: 3em !important;
+    }
+    .copy_centre {
+        padding-top: 0%;
+    }
+    .photo_doc img {
+        position: inherit;
+        height: 150px !important;
+        width: auto !important;
+        padding-top: 0%;
+    }
+    .uslugi_dizainer img {
+        margin-top: 250px;
+        width: auto !important;
+    }
+    .planshet img {
+        margin-top: 250px;
+        margin-left: 250px;
+        width: auto !important;
+    }
+    .printer img {
+        margin-top: 250px;
+        width: auto !important;
+    }
+    .smartfon {
+        height: 150px !important;
+    }
+    .add-to-card-btn {
+        position: inherit !important;
+    }
+    .checkbox-inline {
+        display: block !important;
+    }
+    .footer_smoll_opas h2 {
+        margin-bottom: 0.5em;
+    }
+    .brend_detail h1{
+        font-size: 1.4em;
+    }
+    .model_option{
+        display: none;
+    }
+    .tv_repair_text_home h1{
+        margin-top: 1.6em;
+    }
+    h1{
+        margin-top: 1.6em;
+        font-size: x-large;
+    }
+    .tv_info_h2{
+        margin-top: 0em;
+        font-size: 1.8em;
+    }
+    .tv_info_h1{
+        margin-bottom: 0em;
+    }
+    .price_model{
+        font-size: large;
+    }
+    .price p{
+        font-size: small;
+    }
+    .price h5{
+        font-weight: 500;
+        font-size: medium;
+    }
+    .map_info h2{
+        font-size: x-large;
+        margin-top: 0em;
+    }
+    .map_info {
+        font-size: 1.4em;
+    }
+    #send_form{
+        margin-bottom: 1.5em;
+    }
+    .info_model{
+        margin-top: -2em;
+    }
+    .hid_info a{
+        border: #b5cefc solid 2px;
+        padding: 5px;
+        font-family: 'Vollkorn', serif;
+        font-size: medium;
+        color: #38def9;
+    }
+    .no_m{
+        display:none;
+    }
+    .tv_info_h1 {
+        text-decoration-line: none;
+        font-size: 14pt !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 995px) {
+    /* STYLES HERE */
+    .adres,
+    .tel,
+    .menu {
+        font-size: 1.2em;
+        padding-top: 15px;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 460px) {
+    /* STYLES HERE */
+    .adres {
+        display: none !important;
+    }
+    .time {
+    background-color: #b5cefc;
+    column-count: 1;
+    text-align: start;
+    border-color: white !important;
+    font-family: 'Roboto';
+    font-size: small;
+}
+#cl_bl, .cl_bl, #time {
+    background-color: #b5cefc !important;
+    border-color: white !important;
+    margin-bottom: 0.5em;
+    font-family: 'Roboto';
+    font-size: small;
+}
+#alert{
+    font-size: x-large;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #ef2828;
+    border: 1px solid #ef2828;
+    margin-top: 1em;
+}
+}
+
+@media (min-width: 768px) and (max-width: 870px) {
+    /* STYLES HERE */
+    .tel,
+    .adres,
+    .menu {
+        font-size: 1.2em;
+        padding-top: 13px;
+    }
+    .tel {
+        float: none;
+    }
+    .sub_nav {
+        margin-bottom: 7px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1250px) {
+    /* STYLES HERE */
+    .tv h2,
+    .notebook h2,
+    .smartfon h2,
+    .uslugi_dizainer h2,
+    .planshet h2,
+    .suvenirka h2,
+    .photo_centre h2,
+    .copy_centre h2,
+    .photo_doc h2,
+    .printer h2 {
+        font-size: 1.8em;
+    }
+    .grid__item-title {
+        font-size: 1.2em !important;
+    }
+    .grid__link {
+        height: 290px !important;
+    }
+    .div_popravka {
+        height: 315px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    /* STYLES HERE */
+    .tv h2,
+    .notebook h2,
+    .smartfon h2,
+    .uslugi_dizainer h2,
+    .planshet h2,
+    .suvenirka h2,
+    .photo_centre h2,
+    .copy_centre h2,
+    .photo_doc h2,
+    .printer h2 {
+        font-size: 1.4em;
+    }
+    .grid__item-title {
+        font-size: 1.2em !important;
+    }
+    .grid__link {
+        height: 290px !important;
+    }
+    .div_popravka {
+        height: 315px !important;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 420px) {
+    /* STYLES HERE */
+    .h2_slaider {
+        font-size: medium;
+    }
+    .text_slaider {
+        font-size: 0.8em !important;
+    }
+    .login,
+    .login>a {
+        font-size: small !important;
+    }
+    .cart_href {
+        font-size: small !important;
+    }
+    .tv_info_h2{
+        margin-top: 0em;
+    }
+    .tv_info_h1{
+        margin-bottom: 0em;
+    }
+    .price_model{
+        font-size: large;
+    }
+    .price p{
+        font-size: small;
+    }
+    .price h5{
+        font-weight: 500;
+        font-size: medium;
+    }
+    .map_info h2{
+        font-size: x-large;
+        margin-top: 0em;
+    }
+    #send_form{
+        margin-bottom: 1.5em;
+    }
+    .info_model{
+        margin-top: -2em;
+    }
+    .hid_info a{
+        border: #b5cefc solid 2px;
+        padding: 5px;
+        font-family: 'Vollkorn', serif;
+        font-size: medium;
+        color: #38def9;
+    }
+    .no_m{
+        display:none;
+    }
+    .tv_info_h1 {
+        text-decoration-line: none;
+    }
+}
+
+
+@media (min-width: 420px) and (max-width: 500px) {
+    /* STYLES HERE */
+}
+
+@media (min-width: 500px) and (max-width: 635px) {
+    /* STYLES HERE */
+}
+
+@media (max-width: 768px) {
+    .container-head {
+        display: none;
+    }
+    .adres {
+        display: none;
+    }
+    .hiden_afte_xs {
+        display: none;
+    }
+    .page-header {
+        background-image: none;
+    }
+    .container-head {
+        background-image: none;
+    }
+    .cleare {
+        display: none;
+    }
+    .sub_nav {
+        margin-bottom: 0px;
+    }
+    .printer h2,
+    .uslugi_dizainer h2,
+    .photo_centre h2,
+    .photo_doc h2 {
+        margin-top: 0%;
+    }
+    .tv {
+        background-image: url(../static/img/televizor_gif.gif);
+        background-size: 80%;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .photo_centre {
+        background-image: url(../static/img/fotki.png);
+        background-size: contain;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .photo_doc {
+        background-image: url(../static/img/foto_na_dok.png);
+        background-size: contain;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .notebook {
+        background-image: url(../static/img/notebook.png);
+        background-size: contain;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 3em;
+    }
+    .planshet {
+        background-image: url(../static/img/planshet2.gif);
+        background-size: contain;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 3em;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    .printer {
+        background-image: url(../static/img/printer_kartridj.png);
+        background-size: contain;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 3em;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    .printer h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .uslugi_dizainer {
+        background-image: url(../static/img/uslugi_dizajnera.png);
+        background-size: contain;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 3em;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    .uslugi_dizainer h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .suvenirka {
+        background-image: url(../static/img/suvenirnayz_produktsiya.png);
+        background-size: contain;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 3em;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    .copy_centre {
+        background-image: url(../static/img/kseroks.png);
+        background-size: 100px;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+    .copy_centre {
+        padding-top: 0%;
+    }
+    .photo_doc img {
+        position: inherit;
+        height: 250px;
+        width: auto !important;
+        padding-top: 0%;
+    }
+    .uslugi_dizainer img {
+        margin-top: 250px;
+        width: auto !important;
+    }
+    .planshet img {
+        margin-top: 250px;
+        margin-left: 250px;
+        width: auto !important;
+    }
+    .printer img {
+        margin-top: 250px;
+        width: auto !important;
+    }
+    .smartfon {
+        background-image: url(../static/img/smartfon.png);
+        background-size: contain;
+        height: 250px;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+    .container_smoll_head {
+        background: linear-gradient(87deg, #112243, #32425b, #584c60, #53455e);
+        background-size: 800% 800%;
+    }
+    .rem_op_home_img {
+        display: none;
+    }
+    .rem_op_home {
+        background-size: cover;
+        height: auto;
+    }
+    .foto_op_home_img {
+        display: none;
+    }
+    .foto_op_home {
+        background-size: cover;
+    }
+    .foto_op_home {
+        background: linear-gradient(-87deg, #112243, #32425b, #584c60, #53455e);
+        height: 400px;
+    }
+    .smoll_stab {
+        margin-bottom: -15px;
+    }
+    .footer_smoll_opas {
+        height: 240px;
+    }
+    .footer_smoll_opas h2 {
+        font-size: 1.8em;
+        margin-top: 0px;
+        margin-bottom: 12px;
+    }
+    .footer_smoll_opas p {
+        font-size: 10pt;
+    }
+    .cart_href,
+    .oformlenie_a,
+    .logon,
+    .login a {
+        font-size: medium;
+    }
+    .basket-container:hover .basket-items {
+        display: none;
+    }
+    .cart_href:hover {
+        font-size: inherit;
+    }
+    .tv_info_h1{
+        font-size: 16pt;
+    }
+    .info_model{
+        font-size: small !important;
+    }
+    .info_model h1{
+        font-size: x-large !important;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 768px) {
+    /* STYLES HERE */
+    .grid__item-title {
+        font-size: 1.2em !important;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    .grid__link {
+        height: 265px !important;
+    }
+    .div_popravka {
+        height: 300px !important;
+    }
+    .filter_produkt {
+        margin-top: 0px !important;
+    }
+}
+
+@media (min-width: 420px) and (max-width: 640px) {
+    /* STYLES HERE */
+    .grid__item-title {
+        font-size: 1em !important;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    .grid__link {
+        height: 220px !important;
+    }
+    .div_popravka {
+        height: 250px !important;
+    }
+    .grid__item {
+        width: 50% !important;
+    }
+    .tv_info_h1{
+        font-size: 16pt;
+    }
+    .tv_info_h2{
+        margin-top: 0em;
+    }
+    .tv_info_h1{
+        margin-bottom: 0em;
+    }
+    .price_model{
+        font-size: large;
+    }
+    .price p{
+        font-size: small;
+    }
+    .price h5{
+        font-weight: 500;
+        font-size: medium;
+    }
+    .map_info h2{
+        font-size: x-large;
+        margin-top: 0em;
+    }
+    #send_form{
+        margin-bottom: 1.5em;
+    }
+    .info_model{
+        margin-top: -2em;
+    }
+    .hid_info a{
+        border: #b5cefc solid 2px;
+        padding: 5px;
+        font-family: 'Vollkorn', serif;
+        font-size: medium;
+        color: #38def9;
+    }
+    .no_m{
+        display:none;
+    }
+    .tv_info_h1 {
+        text-decoration-line: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .footer_smoll_opas {
+        height: 290px;
+    }
+}
+
+@media (min-width: 950px) and (max-width: 1200px) {
+    .footer_smoll_opas {
+        height: 300px;
+    }
+    .footer_smoll_opas p {
+        font-size: 1.1em;
+    }
+    .basket-container {
+        float: none;
+        margin-right: 1em;
+    }
+    .basket-container_in_l_p,
+    .login {
+        font-size: medium;
+        text-align: center;
+        margin-top: 0px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 950px) {
+    .footer_smoll_opas {
+        height: 340px;
+    }
+    .footer_smoll_opas p {
+        font-size: 1em;
+    }
+    .footer_smoll_opas h2 {
+        font-size: 1.6em;
+        margin-top: 0px;
+    }
+    .cart_href,
+    .oformlenie_a {
+        font-size: inherit;
+    }
+    .basket-container:hover .basket-items {
+        display: none;
+    }
+    .cart_href:hover {
+        font-size: inherit;
+    }
+    .basket-container_in_l_p,
+    .login {
+        font-size: medium;
+        text-align: right;
+        margin-top: 0px;
+    }
+}
+
+@media (min-width: 786px) and (max-width: 882px) {
+    /* STYLES HERE */
+    .cart {
+        margin-top: -18px !important;
+    }
+    .tel {
+        width: -moz-max-content;
+        width: max-content;
+    }
+}
+
+@media (min-width: 1370px) and (max-width:1600px) {
+    /* STYLES HERE */
+}
+@media (min-width: 600px) and (max-width:990px) {
+
+        .tv_info_h1{
+        font-size: 16pt;
+    }
+    .tv_info_h2{
+        margin-top: 0em;
+    }
+    .tv_info_h1{
+        margin-bottom: 0em;
+    }
+    .price_model{
+        font-size: large;
+    }
+    .price p{
+        font-size: small;
+    }
+    .price h5{
+        font-weight: 500;
+        font-size: medium;
+    }
+    .map_info h2{
+        font-size: x-large;
+        margin-top: 0em;
+    }
+    #send_form{
+        margin-bottom: 1.5em;
+    }
+    .info_model{
+        margin-top: -2em;
+    }
+    .hid_info a{
+        border: #b5cefc solid 2px;
+        padding: 5px;
+        font-family: 'Vollkorn', serif;
+        font-size: medium;
+        color: #38def9;
+    }
+    .no_m{
+        display:none;
+    }
+    .tv_info_h1 {
+        text-decoration-line: none;
+    }
+    #modal_form_one, #modal_form_to, #modal_form_three, #modal_form_four, #modal_form_five{
+        height: 500px;
+        overflow: auto;
+    }
+
+}
+
+@media (min-width: 990px) {
+#one{
+    display: block !important;
+}
+.hid_info{
+    display: none !important;
+}
+  
+}
+
+@media (min-width: 990px) and (max-width:1280px){
+    .map_info{
+        font-size: 1.6em;
+    }
+    .time{
+        font-size: small;
+    }
+    .cl_bl{
+        font-size: inherit !important;
+    }
+    #modal_form_one, #modal_form_to, #modal_form_three, #modal_form_four, #modal_form_five{
+        height: 500px;
+        overflow: auto;
+    }
+}
+
+@media (max-width: 1200px){
+.tv_repair_text_home h1{
+    font-size: x-large;
+    }
+    .brend_detail h1{
+        font-size: large !important;
+    }
+    .info_model h1:{
+    font-size: x-large;
+    }
+}

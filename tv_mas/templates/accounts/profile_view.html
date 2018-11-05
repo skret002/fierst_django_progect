@@ -1,0 +1,139 @@
+{%load staticfiles i18n%} {% load static %}
+<!DOCTYPE html>
+<html lang="RU-ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'media.css' %}" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="{% static 'css/animate.css' %} ">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jasny-bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-3.3.2/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'fancybox/jquery.fancybox.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+</head>
+<div class="content" style="background: linear-gradient(-50deg, #2f3e5c, #839cc5, #dab0f5, #8908f0);">
+    <div class="container_nav">
+        <div class="">
+            {% include "nav.html" %}
+            <div class="container">
+                <div class="row">
+                    <div class="sub_nav">
+                        <div class="col-xs-5 col-sm-2 col-md-3 col-lg-4 col-xl-4 col-xs-offset-7 col-sm-offset-2 col-md-offset-3 col-lg-offset-2 col-xl-offset-2 ">
+                            <p class="tel"> <span class="glyphicon glyphicon-phone-alt"></span> 903 - 28 - 85</p>
+                        </div>
+                        <div class="col-xs-0 col-sm-5 col-md-4 col-lg-4 col-xl-4  col-sm-offset-2 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+                            <p class="adres"> <span class=" glyphicon glyphicon-home"></span> Богатырский пр.36 к1</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="user_info">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6 col-xl-6">
+                    <h3>Ваши данные</h3>
+                    {% for user in user_view %}
+                    <p>Имя: {{user.first_name}}</p>
+                    <p>Фамилия: {{user.last_name}}</p>
+                    <p>Email: {{user.email}}</p>
+                    <p>Контактный номер: {{user.profile.tel_number}}</p>
+                    <p>Дополнительный номер: {{user.profile.tel_number_two}}</p>
+                    <p>Адрес доставки: {{user.profile.location}}</p>
+                    <p>ФИЗ|ЮР: {{user.profile.company_or_us_choise}}</p>
+                    {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-12 col-lg-4 col-md-4 col-xl-4 col-lg-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <h3>Отправить запрос</h3>
+                    {% if request.user.is_anonymous %}
+                    <form action="#" method="post">
+                        {% csrf_token %} {{form}}
+                        <input type="submit" class="btn btn-primary pd" value="Отправить" />
+                    </form>
+                    {%else%}
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <h4>Сообщение</h4>
+                        {{form.you_question}}
+                        <input type="submit" class="btn btn-primary pd" value="Отправить" />
+                    </form>
+                    {% endif %} {% if messages %} {% for message in messages %} {% if "html_safe" in message.tags %} {{ message|safe }} {% else %} {{ message }} {% endif %} {% endfor %} {% endif %}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="user_by_info">
+        <h3 class="centre"> Ваши Заказы </h3>
+        <table class="table text-center table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" class="tovars_teble">№ заказа</th>
+                    <th scope="col" class="tovars_teble">Название товара</th>
+                    <th scope="col" class="tovars_teble">ваше фото</th>
+                    <th scope="col" class="tovars_teble">Цена ед.</th>
+                    <th scope="col" class="tovars_teble">Кол-во</th>
+                    <th scope="col" class="tovars_teble">Дата заказа</th>
+                    <th scope="col" class="tovars_teble">Статус заказа</tr>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for user_order in orders %}
+                <tr>
+                    <td scope="row">
+                        {{user_order.id}}
+                    </td>
+
+                    <td scope="row">
+                        {{user_order.product.name}}
+                    </td>
+                    <td scope="row" class="text-center center">
+                        <div class="smol ">
+                            <a href="{{user_order.us_image.image.url}}" class="fancyimage" rel="group" href="bootstrap3-image-gallery-600-400/001.jpg">
+                                <img class="img-responsive" src="{{user_order.us_image.image.url}}" />
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        {{user_order.product.price}}
+                    </td scope="row">
+                    <td scope="row">
+                        {{user_order.nmb}}
+                    </td>
+
+                    <td scope="row">
+                        {{user_order.created}}
+                    </td>
+                    <td scope="row">
+                        {{user_order.order.status}}
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    {% include "footer.html" %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'jasny-bootstrap.min.js' %}"></script>
+    <script src="{% static 'scripts.js' %}"></script>
+
+    <script src="{% static 'jquery/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.2/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fancybox/jquery.fancybox.pack.js' %}"></script>
+    </body>
+
+</html>

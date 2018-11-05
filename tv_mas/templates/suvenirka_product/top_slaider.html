@@ -1,0 +1,114 @@
+{% load user_agents %}
+
+<style>
+    .fotorama__stage,
+    .fotorama__pointer {
+        width: auto !important;
+    }
+    
+    .fotorama__stage__shaft {
+        width: 100% !important;
+    }
+    
+    .fotorama__nav,
+    .fotorama__nav--dots {
+        width: 100% !important;
+    }
+    
+    .fotorama__img {
+        width: auto !important;
+        height: auto !important;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .fotorama__wrap,
+    .fotorama__wrap--css3,
+    .fotorama__wrap--slide,
+    .fotorama__wrap--toggle-arrows,
+    .fotorama__wrap--no-controls {
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    .text_slaider {
+        bottom: 0;
+        text-transform: uppercase;
+        font-family: 'Roboto Condensed';
+        font-size: 1em;
+        color: #fff;
+    }
+    
+    .layot {
+        height: auto;
+        background: #020101;
+        position: absolute;
+        opacity: 0.6;
+        bottom: 0;
+        border-radius: 10px;
+    }
+    
+    .h2_slaider {
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        margin-top: 5px;
+    }
+    
+    .fotorama__dot {
+        border-width: 3px !important
+    }
+    
+    .fotorama__dot {
+        display: block;
+        width: 10px;
+        height: 10px;
+        position: relative;
+        top: 12px;
+        left: 8px;
+        border-radius: 30px;
+        border: 1px solid #f6f6f6 !important;
+    }
+</style>
+
+<div class="fotorama">
+    <div class="block_slaider">
+        {% for slider_and_images1 in slider_and_image1 %}
+        <img class="fotorama__img" src="{{slider_and_images1.image.url}}"> {% endfor %}
+
+        <div class="layot col-sm-10 col-md-10 col-lg-10 col-xl-10  col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+            <h2 class="h2_slaider">{% for slider_and_texts1 in slider_and_text1 %} {{slider_and_texts1.name_buttom}}{% endfor %}</h2>
+            <p class="text_slaider">{% for slider_and_texts1 in slider_and_text1 %} {{slider_and_texts1.slide_text}}{% endfor %}</p>
+        </div>
+    </div>
+
+    <div class="block_slaider">
+        {% for slider_and_images2 in slider_and_image2 %}
+        <img class="fotorama__img" src="{{slider_and_images2.image.url}}"> {% endfor %}
+
+        <div class="layot col-sm-10 col-md-10 col-lg-10 col-xl-10  col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+            <h2 class="h2_slaider">{% for slider_and_texts2 in slider_and_text2 %} {{slider_and_texts2.name_buttom}}{% endfor %}</h2>
+            <p class="text_slaider">{% for slider_and_texts2 in slider_and_text2 %} {{slider_and_texts2.slide_text}}{% endfor %}</p>
+        </div>
+    </div>
+    <div class="block_slaider">
+        {% for slider_and_images3 in slider_and_image3 %}
+        <img class="fotorama__img" src="{{slider_and_images3.image.url}}"> {% endfor %}
+
+        <div class="layot col-sm-10 col-md-10 col-lg-10 col-xl-10  col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+            <h2 class="h2_slaider">{% for slider_and_texts3 in slider_and_text3 %} {{slider_and_texts3.name_buttom}}{% endfor %}</h2>
+            <p class="text_slaider">{% for slider_and_texts3 in slider_and_text3 %} {{slider_and_texts3.slide_text}}{% endfor %}</p>
+        </div>
+    </div>
+    <div class="block_slaider">
+        {% for slider_and_images4 in slider_and_image4 %}
+        <img class="fotorama__img" src="{{slider_and_images4.image.url}}"> {% endfor %}
+
+        <div class="layot col-sm-10 col-md-10 col-lg-10 col-xl-10  col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1 ">
+            <h2 class="h2_slaider">{% for slider_and_texts4 in slider_and_text4 %} {{slider_and_texts4.name_buttom}}{% endfor %}</h2>
+            <p class="text_slaider">{% for slider_and_texts4 in slider_and_text4 %} {{slider_and_texts4.slide_text}}{% endfor %}</p>
+        </div>
+    </div>
+</div>
